@@ -36,7 +36,7 @@ class ProductSeeder extends Seeder
         }
         $chunks = array_chunk($products, 100);
         foreach($chunks as $chunk) {
-            Product::create($chunk);
+            Product::insert($chunk);
         }
 
     }

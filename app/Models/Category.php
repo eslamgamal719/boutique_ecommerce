@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, SearchableTrait;
 
     protected $fillable = [
         'name',
@@ -16,6 +17,12 @@ class Category extends Model
         'cover',
         'status',
         'parent_id',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'categories.name' => 10,
+        ],
     ];
 
     public function sluggable(): array

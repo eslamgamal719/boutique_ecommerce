@@ -19,7 +19,7 @@ class ProductsTagsSeeder extends Seeder
         $tags = Tag::whereStatus(true)->pluck('id')->toArray();
 
         Product::all()->each(function($product) use ($tags) {
-            $product->attach(Arr::random($tags, rand(2, 3)));
+            $product->tags()->attach(Arr::random($tags, rand(2, 3)));
         });
     }
     

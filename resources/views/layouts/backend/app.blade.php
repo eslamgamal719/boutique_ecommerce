@@ -5,7 +5,10 @@
 
 @include('backend.includes.navbar')
 
-    @yield('content')
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        @yield('content')
+    </div>
 
 @include('backend.includes.modal')
 

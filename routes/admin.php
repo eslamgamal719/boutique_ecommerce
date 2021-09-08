@@ -3,6 +3,8 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoriesController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\TagController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,5 +22,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/index', [DashboardController::class, 'index'])->name('index');
 
         Route::resource('categories', CategoriesController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('tags', TagController::class);
     });
 });

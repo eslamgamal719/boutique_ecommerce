@@ -26,17 +26,42 @@
         Interface
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+
+      <!-- Products -->
       <li class="nav-item">
-        <a class="nav-link {{ active_menu('categories')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="{{ active_menu('categories')[1] }}" aria-controls="collapseTwo">
+        <a class="nav-link {{ active_menu('categories')[0] }}" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="{{ active_menu('categories')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-file"></i>
           <span>Categories</span>
         </a>
-        <div id="collapseTwo" class="collapse {{ active_menu('categories')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseOne" class="collapse {{ active_menu('categories')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="{{ route('admin.categories.index') }}">Categories</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Products -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('products')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="{{ active_menu('products')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-file"></i>
+          <span>Products</span>
+        </a>
+        <div id="collapseTwo" class="collapse {{ active_menu('products')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.products.index') }}">Products</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('tags')[0] }}" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="{{ active_menu('tags')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-file"></i>
+          <span>Tags</span>
+        </a>
+        <div id="collapseThree" class="collapse {{ active_menu('tags')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.tags.index') }}">Tags</a>
           </div>
         </div>
       </li>

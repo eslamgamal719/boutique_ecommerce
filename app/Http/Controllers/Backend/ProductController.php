@@ -3,41 +3,18 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class ProductController extends Controller
 {
-    /**
+ /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //keyword
-        //status
-        //sort_by
-        //order_by
-        //limit_by
-
-
-
-        $categories = Category::withCount('products')
-
-        ->when(request()->keyword != null, function($query) {
-            $query->search(request()->keyword);
-        })
-
-        ->when(request()->status != null, function($query) {
-            $query->whereStatus(request()->status);
-        })
-        
-        ->orderBy(request()->sort_by ?? 'id', request()->order_by ?? 'desc')
-        
-        ->paginate(request()->limit_by ?? 10);
-
-        return view('backend.categories.index', compact('categories'));
+        return view('backend.products.index');
     }
 
     /**
@@ -47,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        return view('backend.products.create');
     }
 
     /**
@@ -69,7 +46,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show');
+        return view('backend.products.show');
     }
 
     /**
@@ -80,7 +57,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.categories.edit');
+        return view('backend.products.edit');
     }
 
     /**
