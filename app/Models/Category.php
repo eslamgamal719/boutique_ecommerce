@@ -35,6 +35,11 @@ class Category extends Model
     }
 
 
+    public function status()
+    {
+        return $this->status == true ? "Active" : "Inactive";
+    }
+
 
     public function products()
     {

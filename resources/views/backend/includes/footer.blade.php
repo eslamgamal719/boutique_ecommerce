@@ -8,6 +8,15 @@
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('backend/js/sb-admin-2.min.js') }}"></script>
 
+  <script src="{{ asset('backend/js/custom.js') }}"></script>
+
+
+  <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/piexif.min.js') }}"></script>
+  <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/sortable.min.js') }}"></script>
+  <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
+  <script src="{{ asset('backend/vendor/bootstrap-fileinput/themes/fas/theme.min.js') }}"></script>
+
+
 
 
   @stack('scripts')
