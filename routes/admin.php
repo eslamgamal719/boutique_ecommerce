@@ -18,9 +18,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('/login', [LoginController::class, 'auth_login'])->name('auth.login');
     Route::get('/forgot-password', [LoginController::class, 'forgot_password'])->name('forgot.password')->middleware('admin_guest');
     
-    Route::middleware('admin')->group(function () {
+    Route::middleware('auth:admin')->group(function () {
         Route::get('/index', [DashboardController::class, 'index'])->name('index');
 
+        Route::post('categories/remove-image', [CategoriesController::class, 'remove_image'])->name('categories.remove_image');
         Route::resource('categories', CategoriesController::class);
         Route::resource('products', ProductController::class);
         Route::resource('tags', TagController::class);

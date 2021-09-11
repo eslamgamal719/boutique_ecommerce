@@ -7,6 +7,9 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
+
+        @include('backend.includes.flash')
+
         @yield('content')
     </div>
 

@@ -19,21 +19,18 @@ class PermissionSeeder extends Seeder
             'main',
             
             //categories permissions
-            'manage_categories',  
             'show_categories',    //show all categories (index)
             'create_category',    
             'display_category',   //show one category (show)
             'update_category',    // edit category
             'delete_category',
 
-            'manage_products',  
             'show_products',   
             'create_product',    
             'display_product',  
             'update_product',    
             'delete_product',
 
-            'manage_tags',  
             'show_tags',   
             'create_tag',    
             'display_tag',  

@@ -27,7 +27,8 @@
       </div>
 
 
-      <!-- Products -->
+      @can('show_categories')
+      <!-- categories -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('categories')[0] }}" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="{{ active_menu('categories')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-file"></i>
@@ -39,7 +40,9 @@
           </div>
         </div>
       </li>
+      @endcan
 
+      @can('show_products')
       <!-- Products -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('products')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="{{ active_menu('products')[1] }}" aria-controls="collapseTwo">
@@ -52,7 +55,9 @@
           </div>
         </div>
       </li>
+      @endcan
 
+      @can('show_tags')
       <!-- Tags -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('tags')[0] }}" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="{{ active_menu('tags')[1] }}" aria-controls="collapseTwo">
@@ -65,6 +70,7 @@
           </div>
         </div>
       </li>
+      @endcan
 
     </ul>
     <!-- End of Sidebar -->
