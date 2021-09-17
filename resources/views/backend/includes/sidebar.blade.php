@@ -31,7 +31,7 @@
       <!-- categories -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('categories')[0] }}" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="{{ active_menu('categories')[1] }}" aria-controls="collapseTwo">
-          <i class="fas fa-file"></i>
+          <i class="fas fa-list-alt"></i>
           <span>Categories</span>
         </a>
         <div id="collapseOne" class="collapse {{ active_menu('categories')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -46,7 +46,7 @@
       <!-- Products -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('products')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="{{ active_menu('products')[1] }}" aria-controls="collapseTwo">
-          <i class="fas fa-file"></i>
+          <i class="fas fa-boxes"></i>
           <span>Products</span>
         </a>
         <div id="collapseTwo" class="collapse {{ active_menu('products')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -61,12 +61,57 @@
       <!-- Tags -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('tags')[0] }}" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="{{ active_menu('tags')[1] }}" aria-controls="collapseTwo">
-          <i class="fas fa-file"></i>
+          <i class="fas fa-tag"></i>
           <span>Tags</span>
         </a>
         <div id="collapseThree" class="collapse {{ active_menu('tags')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin.tags.index') }}">Tags</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_coupons')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('coupons')[0] }}" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="{{ active_menu('coupons')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-percent"></i>
+          <span>Coupons</span>
+        </a>
+        <div id="collapseFour" class="collapse {{ active_menu('coupons')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.coupons.index') }}">Coupons</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_reviews')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('reviews')[0] }}" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="{{ active_menu('reviews')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-comment"></i>
+          <span>Reviews</span>
+        </a>
+        <div id="collapseFive" class="collapse {{ active_menu('reviews')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.reviews.index') }}">Reviews</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_customers')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('customers')[0] }}" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="{{ active_menu('customers')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-users"></i>
+          <span>Customers</span>
+        </a>
+        <div id="collapseSix" class="collapse {{ active_menu('customers')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.customers.index') }}">Customers</a>
           </div>
         </div>
       </li>

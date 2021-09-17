@@ -23,6 +23,7 @@ class CreateAdminsTable extends Migration
             $table->string('user_image')->nullable();
             $table->unsignedTinyInteger('status')->default(0);
             $table->string('password');
+            $table->string('role_name');
             $table->rememberToken();
             $table->timestamps();
         });

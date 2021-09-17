@@ -23,7 +23,12 @@ class Product extends Model
 
     public function status()
     {
-        return $this->status == true ? "Active" : "Inactive";
+        return $this->status ? "Active" : "Inactive";
+    }
+
+    public function feature()
+    {
+        return $this->featured ? "Yes" : "No";
     }
 
 
@@ -42,5 +47,12 @@ class Product extends Model
     {
         return $this->morphMany(Media::class, 'mediable');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id');
+    }
+
+
 }
  

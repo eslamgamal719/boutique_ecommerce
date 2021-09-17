@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SearchableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +28,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'user_image',
         'status',
         'password',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'users.first_name' => 10,
+            'users.last_name' => 10,
+            'users.username' => 10,
+            'users.email' => 10,
+            'users.mobile' => 10,
+        ],
     ];
 
     protected $appends = [
@@ -57,5 +68,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'user_id');
+    }
+
+    public function status()
+    {
+        return $this->status ? 'Active' : 'Inactive';
     }
 }

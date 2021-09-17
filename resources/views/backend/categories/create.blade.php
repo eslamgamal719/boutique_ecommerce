@@ -7,9 +7,9 @@
             <div class="ml-auto">
                 <a href="{{ route('admin.categories.index') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
-                        <i class="fa fa-plus"></i>
+                        <i class="fa fa-home"></i>
                     </span>
-                    <span class="text">Category</span>
+                    <span class="text">Categories</span>
                 </a>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" value="{{ old('name') }}" class="form-control">
-                            @error('name')<span class="text-danger">{{ $messages }}</span>@enderror
+                            @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
                 
@@ -38,7 +38,7 @@
                                 @empty
                                 @endforelse
                             </select>
-                            @error('parent_id')<span class="text-danger">{{ $messages }}</span>@enderror
+                            @error('parent_id')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@
                                 <option value="0" {{ old('status') == 0 ? 'selected' : ''}}>Inactive</option>
                                 <option value="1" {{ old('status') == 1 ? 'selected' : ''}}>Active</option>
                             </select>
-                            @error('status')<span class="text-danger">{{ $messages }}</span>@enderror
+                            @error('status')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="file-loading">
                             <input type="file" name="cover" id="category-image" class="file-input-overview">
                             <span class="form-text text-muted">Image width should be 500px * 500px</span>
-                            @error('cover')<span class="text-danger">{{ $messages }}</span>@enderror
+                            @error('cover')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>  
                 </div>

@@ -37,6 +37,30 @@ class PermissionSeeder extends Seeder
             'update_tag',    
             'delete_tag',
 
+            'show_coupons',   
+            'create_coupon',    
+            'display_coupon',  
+            'update_coupon',    
+            'delete_coupon',
+
+            'show_reviews',   
+            'create_review',    
+            'display_review',  
+            'update_review',    
+            'delete_review',
+
+            'show_customers',   
+            'create_customer',    
+            'display_customer',  
+            'update_customer',    
+            'delete_customer',
+
+            'show_supervisors',   
+            'create_supervisor',    
+            'display_supervisor',  
+            'update_supervisor',    
+            'delete_supervisor',
+
         ];
 
         foreach($permissions as $permission) {

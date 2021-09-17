@@ -29,7 +29,7 @@
                         <th>Parent</th>
                         <th>Status</th>
                         <th>Created at</th>
-                        <th class="text-center" style="width: 30px;">Action</th>
+                        <th class="text-center" style="width: 30px;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

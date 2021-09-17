@@ -18,6 +18,23 @@ class Admin extends Authenticatable
         'mobile',
         'user_image',
         'status',
+        'role_name',
         'password',
     ];
+
+    protected $appends = [
+        'full_name'
+    ];
+
+
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
+
+    public function status()
+    {
+        return $this->status ? 'Active' : 'Inactive';
+    }
+
 }

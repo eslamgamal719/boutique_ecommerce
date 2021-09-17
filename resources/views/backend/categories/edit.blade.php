@@ -7,9 +7,9 @@
             <div class="ml-auto">
                 <a href="{{ route('admin.categories.index') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
-                        
+                        <i class="fa fa-home"></i>
                     </span>
-                    <span class="text">Category</span>
+                    <span class="text">Categories</span>
                 </a>
             </div>
         </div>
@@ -18,6 +18,8 @@
             <form action="{{ route('admin.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
+
+                <input type="hidden" name="id" value="{{ $category->id }}">
 
                 <div class="row">
                     <div class="col-6">
@@ -47,8 +49,8 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select name="status" class="form-control">
-                                <option value="0" {{ old('status', $category->status) == 0 ? 'selected' : ''}}>Inactive</option>
-                                <option value="1" {{ old('status', $category->status) == 1 ? 'selected' : ''}}>Active</option>
+                                <option value="1" {{ old('status', $category->status) == '1' ? 'selected' : ''}}>Active</option>
+                                <option value="0" {{ old('status', $category->status) == '0' ? 'selected' : ''}}>Inactive</option>
                             </select>
                             @error('status')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
@@ -89,19 +91,23 @@
                 overwriteInitial: false,
 
                 initialPreview: [
-                    "{{ asset('assets/categories/' . $category->cover) }}"
+                    @if ($category->cover != '')
+                    "{{ asset('assets/categories/' . $category->cover) }}",
+                    @endif
                 ],
                 initialPreviewAsData: true,
                 initialPreviewFileType: 'image',
                 initialPreviewConfig: [
+                    @if ($category->cover != '')
                     {
                         caption: "{{ $category->cover }}",
                         size: "1111", 
                         width: "120px", 
                         url: "{{ route('admin.categories.remove_image', ['category_id' => $category->id, '_token' => csrf_token()]) }}", 
                         key: {{ $category->id }}
-                    }
-                ],
+                    },
+                    @endif
+                ]
             });
         });
     </script>

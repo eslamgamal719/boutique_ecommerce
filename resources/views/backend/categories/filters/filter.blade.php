@@ -12,8 +12,8 @@
                 <div class="form-group">
                     <select name="status" class="form-control">
                         <option value="">---</option>
-                        <option value="1" {{ old('status', request()->input('status')) == 1 ? 'selected' : '' }}>Active</option>
-                        <option value="0" {{ old('status', request()->input('status')) == 0 ? 'selected' : '' }}>Inactive</option>
+                        <option value="1" {{ old('status', request()->input('status')) == '1' ? 'selected' : '' }}>Active</option>
+                        <option value="0" {{ old('status', request()->input('status')) == '0' ? 'selected' : '' }}>Inactive</option>
                     </select>
                 </div>
             </div>

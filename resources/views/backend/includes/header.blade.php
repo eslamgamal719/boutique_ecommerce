@@ -23,6 +23,10 @@
 
     <!-- Bootstrap-fileinput -->
     <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-fileinput/css/fileinput.min.css') }}">
+
+    <!-- Summernote -->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
+  @stack('css')
 </head>
 <body id="page-top">
 
