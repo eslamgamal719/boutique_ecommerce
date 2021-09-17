@@ -14,7 +14,6 @@ class CategoriesController extends Controller
 
     public function __construct()
     {
-      
         $this->middleware('permission:show_categories', ['only' => ['index']]);
         $this->middleware('permission:create_category', ['only' => ['create', 'store']]);
         $this->middleware('permission:update_category', ['only' => ['edit', 'update']]);

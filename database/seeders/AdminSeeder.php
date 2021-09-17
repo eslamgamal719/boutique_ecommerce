@@ -17,18 +17,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'first_name'        => "Admin",
-            'last_name'         => "System",
-            'username'          => "admin",
-            'email'             => 'admin@admin.com',
-            'email_verified_at' => now(),
-            'mobile'            => '96654784587',
-            'user_image'        => 'avatar.png',
-            'status'            => 1,
-            'password'          => bcrypt('123123123'),
-            'remember_token'    => \Str::random(10),
-        ]);
+        User::factory()->count(100)->create();   //create 100 user using factory
 
         $admin = Admin::create([
             'first_name'        => "Admin",
@@ -38,6 +27,7 @@ class AdminSeeder extends Seeder
             'mobile'            => '96654784587',
             'user_image'        => 'avatar.png',
             'status'            => 1,
+            'role_name'         => 'admin',
             'password'          => bcrypt('123123123'),
             'remember_token'    => \Str::random(10),
         ]);
