@@ -98,7 +98,7 @@
                         <label for="tags">Tags</label>
                         <select name="tags[]" class="form-control select2" multiple>
                             @forelse ($tags as $tag)
-                                <option value="{{ $tag->id }}" {{ in_array($tag->id, $product->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tag->name }}</option>
+                                <option value="{{ $tag->id }}" {{ in_array($tag->id, old('tags', $product->tags->pluck('id')->toArray())) ? 'selected' : '' }}>{{ $tag->name }}</option>
                             @empty
                             @endforelse
                         </select>
