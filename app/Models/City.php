@@ -13,7 +13,7 @@ class City extends Model
     protected $fillable = [
         'name',
         'status',
-        'city_id'
+        'state_id'
     ];
 
     protected $searchable = [
@@ -33,6 +33,11 @@ class City extends Model
 
     public function state()
     {
-        return $this->belongsTo(State::class, 'city_id');
+        return $this->belongsTo(State::class, 'state_id');
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class, 'city_id');
     }
 }

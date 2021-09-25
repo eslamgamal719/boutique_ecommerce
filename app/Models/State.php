@@ -38,6 +38,11 @@ class State extends Model
 
     public function cities()
     {
-        return $this->hasMany(City::class, 'city_id');
+        return $this->hasMany(City::class, 'state_id');
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class, 'state_id');
     }
 }

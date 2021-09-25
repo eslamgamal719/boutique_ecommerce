@@ -3,20 +3,19 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\TagRequest;
-use App\Models\Tag;
+use App\Http\Requests\Backend\CountryRequest;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class CountryController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('permission:show_tags', ['only' => ['index']]);
-        $this->middleware('permission:create_tag', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update_tag', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete_tag', ['only' => ['destroy']]);
-        $this->middleware('permission:display_tag', ['only' => ['show']]);
+        $this->middleware('permission:show_countries', ['only' => ['index']]);
+        $this->middleware('permission:create_country', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update_country', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete_country', ['only' => ['destroy']]);
+        $this->middleware('permission:display_country', ['only' => ['show']]);
     }
 
     /**
@@ -26,7 +25,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::with('products')
+        $countries = Country::withCount('states')
 
         ->when(request()->keyword != null, function($q) {
             $q->search(request()->keyword);
@@ -38,7 +37,7 @@ class TagController extends Controller
 
         ->paginate(request()->limit_by ?? 10);
 
-        return view('backend.tags.index', compact('tags'));
+        return view('backend.countries.index', compact('countries'));
     }
 
     /**
@@ -48,7 +47,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('backend.tags.create');
+        return view('backend.countries.create');
     }
 
     /**
@@ -57,11 +56,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TagRequest $request)
+    public function store(CountryRequest $request)
     {
-        Tag::create($request->validated());
+        Country::create($request->validated());
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.countries.index')->with([
             'message' => 'Created successfully',
             'alert-type' => 'success'
         ]);
@@ -73,9 +72,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Country $country)
     {
-        return view('backend.tags.show');
+        return view('backend.countries.show', compact('country'));
     }
 
     /**
@@ -84,9 +83,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(Country $country)
     {
-        return view('backend.tags.edit', compact('tag'));
+        return view('backend.countries.edit', compact('country'));
     }
 
     /**
@@ -96,15 +95,11 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(CountryRequest $request, Country $country)
     {
-        $input['name'] = $request->name;
-        $input['status'] = $request->status;
-        $input['slug'] = null;
+        $country->update($request->validated());
 
-        $tag->update($input);
-
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.countries.index')->with([
             'message' => 'Updated successfully',
             'alert-type' => 'success'
         ]);
@@ -116,11 +111,11 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Country $country)
     {
-        $tag->delete();
+        $country->delete();
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.countries.index')->with([
             'message' => 'Deleted successfully',
             'alert-type' => 'success'
         ]);

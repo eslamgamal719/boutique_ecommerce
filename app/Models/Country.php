@@ -35,4 +35,9 @@ class Country extends Model
     {
         return $this->hasMany(State::class, 'country_id');
     }
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class, 'country_id');
+    }
 }

@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CouponSeeder::class);
         $this->call(ReviewSeeder::class);
         $this->call(WorldSeeder::class);
+        $this->call(WorldStatusSeeder::class);
+        $this->call(UserAddressSeeder::class);
     }
 }

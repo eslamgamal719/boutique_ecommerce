@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\TagRequest;
-use App\Models\Tag;
+use App\Http\Requests\Backend\CityRequest;
+use App\Models\City;
+use App\Models\State;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class CityController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('permission:show_tags', ['only' => ['index']]);
-        $this->middleware('permission:create_tag', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update_tag', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete_tag', ['only' => ['destroy']]);
-        $this->middleware('permission:display_tag', ['only' => ['show']]);
+        $this->middleware('permission:show_cities', ['only' => ['index']]);
+        $this->middleware('permission:create_city', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update_city', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete_city', ['only' => ['destroy']]);
+        $this->middleware('permission:display_city', ['only' => ['show']]);
     }
 
     /**
@@ -26,7 +26,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::with('products')
+        $cities = City::query()
 
         ->when(request()->keyword != null, function($q) {
             $q->search(request()->keyword);
@@ -38,7 +38,7 @@ class TagController extends Controller
 
         ->paginate(request()->limit_by ?? 10);
 
-        return view('backend.tags.index', compact('tags'));
+        return view('backend.cities.index', compact('cities'));
     }
 
     /**
@@ -48,7 +48,8 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('backend.tags.create');
+        $states = State::get(['id', 'name']);
+        return view('backend.cities.create', compact('states'));
     }
 
     /**
@@ -57,11 +58,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TagRequest $request)
+    public function store(CityRequest $request)
     {
-        Tag::create($request->validated());
+        City::create($request->validated());
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.cities.index')->with([
             'message' => 'Created successfully',
             'alert-type' => 'success'
         ]);
@@ -73,9 +74,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(City $city)
     {
-        return view('backend.tags.show');
+        return view('backend.cities.show', compact('city'));
     }
 
     /**
@@ -84,9 +85,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(City $city)
     {
-        return view('backend.tags.edit', compact('tag'));
+        $states = State::get(['id', 'name']);
+        return view('backend.cities.edit', compact('city', 'states'));
     }
 
     /**
@@ -96,15 +98,11 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(CityRequest $request, City $city)
     {
-        $input['name'] = $request->name;
-        $input['status'] = $request->status;
-        $input['slug'] = null;
+        $city->update($request->validated());
 
-        $tag->update($input);
-
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.cities.index')->with([
             'message' => 'Updated successfully',
             'alert-type' => 'success'
         ]);
@@ -116,13 +114,19 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(City $city)
     {
-        $tag->delete();
+        $city->delete();
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.cities.index')->with([
             'message' => 'Deleted successfully',
             'alert-type' => 'success'
         ]);
+    }
+
+    public function get_cities(Request $request)
+    {
+        $cities = City::whereStatus(true)->whereStateId($request->state_id)->get(['id', 'name'])->toArray();
+        return response()->json($cities);
     }
 }

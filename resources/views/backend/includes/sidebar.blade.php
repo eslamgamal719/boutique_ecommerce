@@ -117,5 +117,65 @@
       </li>
       @endcan
 
+      @can('show_countries')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('countries')[0] }}" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="{{ active_menu('countries')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-globe"></i>
+          <span>Countries</span>
+        </a>
+        <div id="collapseSeven" class="collapse {{ active_menu('countries')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.countries.index') }}">Countries</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_states')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('states')[0] }}" href="#" data-toggle="collapse" data-target="#collapseEight" aria-expanded="{{ active_menu('states')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>States</span>
+        </a>
+        <div id="collapseEight" class="collapse {{ active_menu('states')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.states.index') }}">States</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_cities')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('cities')[0] }}" href="#" data-toggle="collapse" data-target="#collapseNine" aria-expanded="{{ active_menu('cities')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-university"></i>
+          <span>Cities</span>
+        </a>
+        <div id="collapseNine" class="collapse {{ active_menu('cities')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.cities.index') }}">Cities</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_customer_addresses')
+      <!-- Tags -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('customer_addresses')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTen" aria-expanded="{{ active_menu('customer_addresses')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>Customer Adresses</span>
+        </a>
+        <div id="collapseTen" class="collapse {{ active_menu('customer_addresses')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.customer_addresses.index') }}">Customer Adresses</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
     </ul>
     <!-- End of Sidebar -->

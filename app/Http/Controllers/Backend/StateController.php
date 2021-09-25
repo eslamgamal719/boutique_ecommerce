@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\TagRequest;
-use App\Models\Tag;
+use App\Http\Requests\Backend\StateRequest;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\State;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class StateController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('permission:show_tags', ['only' => ['index']]);
-        $this->middleware('permission:create_tag', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update_tag', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete_tag', ['only' => ['destroy']]);
-        $this->middleware('permission:display_tag', ['only' => ['show']]);
+        $this->middleware('permission:show_states', ['only' => ['index']]);
+        $this->middleware('permission:create_state', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update_state', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete_state', ['only' => ['destroy']]);
+        $this->middleware('permission:display_state', ['only' => ['show']]);
     }
 
     /**
@@ -26,7 +27,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::with('products')
+        $states = State::withCount('cities')
 
         ->when(request()->keyword != null, function($q) {
             $q->search(request()->keyword);
@@ -38,7 +39,7 @@ class TagController extends Controller
 
         ->paginate(request()->limit_by ?? 10);
 
-        return view('backend.tags.index', compact('tags'));
+        return view('backend.states.index', compact('states'));
     }
 
     /**
@@ -48,7 +49,8 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('backend.tags.create');
+        $countries = Country::whereStatus(true)->get(['id', 'name']);
+        return view('backend.states.create', compact('countries'));
     }
 
     /**
@@ -57,11 +59,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TagRequest $request)
+    public function store(StateRequest $request)
     {
-        Tag::create($request->validated());
+        State::create($request->validated());
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.states.index')->with([
             'message' => 'Created successfully',
             'alert-type' => 'success'
         ]);
@@ -73,9 +75,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(State $state)
     {
-        return view('backend.tags.show');
+        return view('backend.states.show', compact('state'));
     }
 
     /**
@@ -84,9 +86,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(State $state)
     {
-        return view('backend.tags.edit', compact('tag'));
+        $countries = Country::whereStatus(true)->get(['id', 'name']);
+        return view('backend.states.edit', compact('state', 'countries'));
     }
 
     /**
@@ -96,15 +99,11 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(StateRequest $request, State $state)
     {
-        $input['name'] = $request->name;
-        $input['status'] = $request->status;
-        $input['slug'] = null;
+        $state->update($request->validated());
 
-        $tag->update($input);
-
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.states.index')->with([
             'message' => 'Updated successfully',
             'alert-type' => 'success'
         ]);
@@ -116,13 +115,20 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(State $state)
     {
-        $tag->delete();
+        $state->delete();
 
-        return redirect()->route('admin.tags.index')->with([
+        return redirect()->route('admin.states.index')->with([
             'message' => 'Deleted successfully',
             'alert-type' => 'success'
         ]);
+    }
+
+
+    public function get_states(Request $request)
+    {
+        $states = State::whereStatus(true)->whereCountryId($request->country_id)->get(['id', 'name'])->toArray();
+        return response()->json($states);
     }
 }
