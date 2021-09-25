@@ -187,4 +187,14 @@ class CustomerController extends Controller
         }
         return true;
     }
+
+    public function get_customers()
+    {
+        $customers = User::when(request()->input('query') != '', function($q) {
+            $q->search(request()->input('query'));
+        })
+        ->get(['id', 'first_name', 'last_name', 'email'])->toArray();
+
+        return response()->json($customers);
+    }
 }

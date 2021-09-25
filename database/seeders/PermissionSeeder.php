@@ -61,6 +61,30 @@ class PermissionSeeder extends Seeder
             'update_supervisor',    
             'delete_supervisor',
 
+            'show_countries',   
+            'create_country',    
+            'display_country',  
+            'update_country',    
+            'delete_country',
+
+            'show_states',   
+            'create_state',    
+            'display_state',  
+            'update_state',    
+            'delete_state',
+
+            'show_cities',   
+            'create_city',    
+            'display_city',  
+            'update_city',    
+            'delete_city',
+
+            'show_customer_addresses',   
+            'create_customer_address',    
+            'display_customer_address',  
+            'update_customer_address',    
+            'delete_customer_address',
+
         ];
 
         foreach($permissions as $permission) {

@@ -153,9 +153,11 @@
             </div>
           </li>
 
-          <li class="nav-item">
-            <a href="{{ route('admin.supervisors.index') }}">Supervisors</a>
-          </li>
+          @can('show_supervisors')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.supervisors.index') }}">Supervisors</a>
+            </li>
+          @endcan
 
           <div class="topbar-divider d-none d-sm-block"></div>
 

@@ -172,8 +172,9 @@ class SupervisorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Admin $supervisor)
-    {
-        if(File::exists("assets/supervisors/" . $supervisor->user_image)) {
+    {   
+        
+        if($supervisor->user_image != '' && File::exists("assets/supervisors/" . $supervisor->user_image)) {
             unlink("assets/supervisors/" . $supervisor->user_image);
         }
         $supervisor->delete();

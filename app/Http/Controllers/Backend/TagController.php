@@ -34,7 +34,7 @@ class TagController extends Controller
         ->when(request()->status != null, function($q) {
             $q->whereStatus(true);
         })
-        ->orderBy(request()->sort_by ?? 'id', request()->orderBy ?? 'desc')
+        ->orderBy(request()->sort_by ?? 'id', request()->order_by ?? 'desc')
 
         ->paginate(request()->limit_by ?? 10);
 
