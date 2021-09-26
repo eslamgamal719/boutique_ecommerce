@@ -40,4 +40,9 @@ class Country extends Model
     {
         return $this->hasMany(UserAddress::class, 'country_id');
     }
+
+    public function companies()
+    {
+        return $this->belongsToMany(ShippingCompany::class, 'shipping_company_country');
+    }
 }

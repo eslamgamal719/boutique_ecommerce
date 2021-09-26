@@ -73,7 +73,7 @@
       @endcan
 
       @can('show_coupons')
-      <!-- Tags -->
+      <!-- coupons -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('coupons')[0] }}" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="{{ active_menu('coupons')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-percent"></i>
@@ -88,7 +88,7 @@
       @endcan
 
       @can('show_reviews')
-      <!-- Tags -->
+      <!-- reviews -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('reviews')[0] }}" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="{{ active_menu('reviews')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-comment"></i>
@@ -103,7 +103,7 @@
       @endcan
 
       @can('show_customers')
-      <!-- Tags -->
+      <!-- customers -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('customers')[0] }}" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="{{ active_menu('customers')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-users"></i>
@@ -118,7 +118,7 @@
       @endcan
 
       @can('show_countries')
-      <!-- Tags -->
+      <!-- countries -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('countries')[0] }}" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="{{ active_menu('countries')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-globe"></i>
@@ -133,7 +133,7 @@
       @endcan
 
       @can('show_states')
-      <!-- Tags -->
+      <!-- states -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('states')[0] }}" href="#" data-toggle="collapse" data-target="#collapseEight" aria-expanded="{{ active_menu('states')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-map-marker-alt"></i>
@@ -148,7 +148,7 @@
       @endcan
 
       @can('show_cities')
-      <!-- Tags -->
+      <!-- cities -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('cities')[0] }}" href="#" data-toggle="collapse" data-target="#collapseNine" aria-expanded="{{ active_menu('cities')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-university"></i>
@@ -163,7 +163,7 @@
       @endcan
 
       @can('show_customer_addresses')
-      <!-- Tags -->
+      <!-- customer addresses -->
       <li class="nav-item">
         <a class="nav-link {{ active_menu('customer_addresses')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTen" aria-expanded="{{ active_menu('customer_addresses')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-map-marked-alt"></i>
@@ -172,6 +172,21 @@
         <div id="collapseTen" class="collapse {{ active_menu('customer_addresses')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin.customer_addresses.index') }}">Customer Adresses</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      @can('show_shipping_companies')
+      <!-- shipping companies -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('shipping_companies')[0] }}" href="#" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="{{ active_menu('shipping_companies')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-shipping-fast"></i>
+          <span>Shipping Companies</span>
+        </a>
+        <div id="collapseEleven" class="collapse {{ active_menu('shipping_companies')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.shipping_companies.index') }}">Shipping Companies</a>
           </div>
         </div>
       </li>

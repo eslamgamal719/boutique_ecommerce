@@ -15,6 +15,8 @@ class CreateShippingCompanyCountryTable extends Migration
     {
         Schema::create('shipping_company_country', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('country_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('shipping_company_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

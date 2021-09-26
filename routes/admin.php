@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CustomerAddressController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Backend\ShippingCompanyController;
 use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\SupervisorController;
 use App\Http\Controllers\Backend\TagController;
@@ -54,6 +55,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::get('cities/get_cities', [CityController::class, 'get_cities'])->name('cities.get_cities');
         Route::resource('cities', CityController::class);
+
+        Route::resource('shipping_companies', ShippingCompanyController::class);
 
     });
 });
