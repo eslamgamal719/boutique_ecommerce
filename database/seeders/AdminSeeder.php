@@ -38,7 +38,6 @@ class AdminSeeder extends Seeder
             'username'          => "admin",
             'email'             => 'admin@admin.com',
             'mobile'            => '96654784587',
-            'user_image'        => 'avatar.png',
             'status'            => 1,
             'role_name'         => 'admin',
             'password'          => bcrypt('123123123'),
