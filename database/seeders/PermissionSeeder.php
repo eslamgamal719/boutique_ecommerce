@@ -85,6 +85,12 @@ class PermissionSeeder extends Seeder
             'update_customer_address',    
             'delete_customer_address',
 
+            'show_shipping_companies',   
+            'create_shipping_company',    
+            'display_shipping_company',  
+            'update_shipping_company',    
+            'delete_shipping_company',
+
         ];
 
         foreach($permissions as $permission) {
