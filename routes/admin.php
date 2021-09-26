@@ -29,6 +29,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     
     Route::middleware('auth:admin')->group(function () {
         Route::get('/index', [DashboardController::class, 'index'])->name('index');
+        Route::get('/account_settings', [DashboardController::class, 'account_settings'])->name('account.settings');
+        Route::post('/admin/remove_image', [DashboardController::class, 'remove_image'])->name('remove_image');
+        Route::patch('/account_settings/{id}', [DashboardController::class, 'update_account_settings'])->name('update.account.settings');
         
         Route::post('categories/remove-image', [CategoriesController::class, 'remove_image'])->name('categories.remove_image');
         Route::resource('categories', CategoriesController::class);
