@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
 
+    <!-- Scripts -->
+    <link src="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Favicon-->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -29,9 +31,11 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.default.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
+      @stack('css')
+      <livewire:styles />
   </head>
   <body>
-    <div class="page-holder {{ request()->routeIs('frontend.details') ? 'bg-light' : null }}">
+    <div class="page-holder {{ request()->routeIs('frontend.product') ? 'bg-light' : null }}">
       <!-- navbar-->
       <header class="header bg-white">
         <div class="container px-0 px-lg-3">
@@ -46,13 +50,13 @@
                   <a class="nav-link" href="{{ route('frontend.shop') }}">Shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('frontend.details') }}">Product detail</a>
+                  <a class="nav-link" href="{{ route('frontend.product') }}">Product detail</a>
                 </li>
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                   <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.index') }}">Homepage</a>
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.shop') }}">Category</a>
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.details') }}">Product detail</a>
+                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.product') }}">Product detail</a>
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.cart') }}">Shopping cart</a>
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.checkout') }}">Checkout</a>
                     </div>

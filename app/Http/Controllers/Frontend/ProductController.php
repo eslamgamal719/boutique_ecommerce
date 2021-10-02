@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     
-    public function details()
+    public function product($slug)
     {
-        return view('frontend.details');
+        return view('frontend.product');
     }
 }
