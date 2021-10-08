@@ -3,7 +3,8 @@
 
       <!-- HERO SECTION-->
       <div class="container">
-        <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" style="background: url('{{ asset('assets/sliders/hero-banner-alt.jpg') }}')">
+        <section class="hero pb-3 bg-cover bg-center d-flex align-items-center"
+         style="background: url('{{ asset('assets/sliders/hero-banner-alt.jpg') }}')">
           <div class="container py-5">
             <div class="row px-4 px-lg-5">
               <div class="col-lg-6">

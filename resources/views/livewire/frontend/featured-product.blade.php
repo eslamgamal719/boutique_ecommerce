@@ -1,4 +1,5 @@
 <div>
+
     <!-- TRENDING PRODUCTS-->
     <section class="py-5">
         <header>
@@ -26,7 +27,9 @@
                                 <a class="btn btn-sm btn-dark" href="#">Add to cart</a>
                             </li>
                             <li class="list-inline-item mr-0">
-                                <a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal">
+                                <a class="btn btn-sm btn-outline-dark"
+                                wire:click="$emit('showProductModalAction', '{{ $featuredProduct->slug }}')"
+                                data-target="#productView" data-toggle="modal">
                                     <i class="fas fa-expand"></i>
                                 </a>
                             </li>
@@ -44,5 +47,8 @@
             @endforelse
 
         </div>
+
+        <livewire:frontend.product-modal-shared />
     </section>
+    
 </div>
