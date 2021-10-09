@@ -8,20 +8,20 @@
                 <div class="row align-items-stretch">
                     <div class="col-lg-6 p-lg-0">
                         @foreach($productModal->media as $media)
-                            @if($loop->first)
-                                <a class="product-view d-block h-100 bg-cover bg-center"
-                                   style="background: url('{{ asset('assets/products/'.$media->file_name) }}')"
-                                   href="{{ asset('assets/products/' . $media->file_name) }}"
-                                   data-lightbox="productview"
-                                   title="{{ $productModal->name }}">
-                                </a>
-                            @else
-                            <a class="d-none"
-                               href="{{ asset('assets/products/' . $media->file_name) }}"
-                               title="{{ $productModal->name }}"
-                               data-lightbox="productview">
+                          @if($loop->first)
+                            <a class="product-view d-block h-100 bg-cover bg-center"
+                                style="background: url('{{ asset('assets/products/'.$media->file_name) }}')"
+                                href="{{ asset('assets/products/' . $media->file_name) }}"
+                                data-lightbox="productview"
+                                title="{{ $productModal->name }}">
                             </a>
-                            @endif
+                          @else
+                            <a class="d-none"
+                              href="{{ asset('assets/products/' . $media->file_name) }}"
+                              title="{{ $productModal->name }}"
+                              data-lightbox="productview">
+                            </a>
+                          @endif
                         @endforeach
                     </div>
 
@@ -51,14 +51,23 @@
                         <div class="col-sm-7 pr-sm-0">
                           <div class="border d-flex align-items-center justify-content-between py-1 px-3"><span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                             <div class="quantity">
-                              <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                              <input class="form-control border-0 shadow-0 p-0" type="text" value="1">
-                              <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                              <button wire:click="decreaseQuantity()" class="p-0"><i class="fas fa-caret-left"></i></button>
+                              <input type="text" wire:model="quantity" class="form-control border-0 shadow-0 p-0">
+                              <button wire:click="increaseQuantity()" class="p-0"><i class="fas fa-caret-right"></i></button>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-5 pl-sm-0"><a class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="cart.html">Add to cart</a></div>
-                      </div><a class="btn btn-link text-dark p-0" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a>
+                        <div class="col-sm-5 pl-sm-0">
+                          <a wire:click="addToCart()"
+                           class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
+                            href="javascript:void(0);">Add to cart
+                          </a>
+                        </div>
+                      </div>
+                      <a wire:click="addToWishlist()" class="btn btn-link text-dark p-0">
+                        <i class="far fa-heart mr-2"></i>Add to wish list</a>
+
+                     
                     </div>
                   </div>
 

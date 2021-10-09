@@ -1,5 +1,5 @@
-<div>
-
+<div wire:ignore>
+    <!-- wire:ignore and click.prevent to avoid refresh products when click button -->
     <!-- TRENDING PRODUCTS-->
     <section class="py-5">
         <header>
@@ -19,16 +19,17 @@
                         <div class="product-overlay">
                         <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0">
-                                <a class="btn btn-sm btn-outline-dark" href="#">
+                                <a wire:click.prevent="addToWishlist('{{ $featuredProduct->id }}')" class="btn btn-sm btn-outline-dark">
                                     <i class="far fa-heart"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item m-0 p-0">
-                                <a class="btn btn-sm btn-dark" href="#">Add to cart</a>
+                                <a wire:click.prevent="addToCart('{{ $featuredProduct->id }}')" 
+                                    href="javascript:void();" class="btn btn-sm btn-dark">Add to cart</a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn btn-sm btn-outline-dark"
-                                wire:click="$emit('showProductModalAction', '{{ $featuredProduct->slug }}')"
+                                wire:click.prevent="$emit('showProductModalAction', '{{ $featuredProduct->slug }}')"
                                 data-target="#productView" data-toggle="modal">
                                     <i class="fas fa-expand"></i>
                                 </a>

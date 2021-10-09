@@ -16,7 +16,20 @@
                 </div>
             </div>
             <div class="col-sm-10 order-1 order-sm-2">
-                <div class="owl-carousel product-slider" data-slider-id="1"><a class="d-block" href="img/product-detail-1.jpg" data-lightbox="product" title="Product item 1"><img class="img-fluid" src="{{ asset('frontend/img/product-detail-1.jpg') }}" alt="..."></a><a class="d-block" href="img/product-detail-2.jpg') }}" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="{{ asset('frontend/img/product-detail-2.jpg') }}" alt="..."></a><a class="d-block" href="img/product-detail-3.jpg" data-lightbox="product" title="Product item 3"><img class="img-fluid" src="{{ asset('frontend/img/product-detail-3.jpg') }}" alt="..."></a><a class="d-block" href="img/product-detail-4.jpg" data-lightbox="product" title="Product item 4"><img class="img-fluid" src="{{ asset('frontend/img/product-detail-4.jpg') }}" alt="..."></a></div>
+                <div class="owl-carousel product-slider" data-slider-id="1">
+                    <a class="d-block" href="img/product-detail-1.jpg" data-lightbox="product" title="Product item 1">
+                        <img class="img-fluid" src="{{ asset('frontend/img/product-detail-1.jpg') }}" alt="...">
+                    </a>
+                    <a class="d-block" href="img/product-detail-2.jpg') }}" data-lightbox="product" title="Product item 2">
+                        <img class="img-fluid" src="{{ asset('frontend/img/product-detail-2.jpg') }}" alt="...">
+                    </a>
+                    <a class="d-block" href="img/product-detail-3.jpg" data-lightbox="product" title="Product item 3">
+                        <img class="img-fluid" src="{{ asset('frontend/img/product-detail-3.jpg') }}" alt="...">
+                    </a>
+                    <a class="d-block" href="img/product-detail-4.jpg" data-lightbox="product" title="Product item 4">
+                        <img class="img-fluid" src="{{ asset('frontend/img/product-detail-4.jpg') }}" alt="...">
+                    </a>
+                </div>
             </div>
             </div>
         </div>
@@ -106,7 +119,7 @@
         <!-- PRODUCT-->
         <div class="col-lg-3 col-sm-6">
             <div class="product text-center skel-loader">
-            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.details') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-1.jpg') }}" alt="..."></a>
+            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.product') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-1.jpg') }}" alt="..."></a>
                 <div class="product-overlay">
                 <ul class="mb-0 list-inline">
                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
@@ -115,14 +128,14 @@
                 </ul>
                 </div>
             </div>
-            <h6> <a class="reset-anchor" href="{{ route('frontend.details') }}">Kui Ye Chen’s AirPods</a></h6>
+            <h6> <a class="reset-anchor" href="{{ route('frontend.product') }}">Kui Ye Chen’s AirPods</a></h6>
             <p class="small text-muted">$250</p>
             </div>
         </div>
         <!-- PRODUCT-->
         <div class="col-lg-3 col-sm-6">
             <div class="product text-center skel-loader">
-            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.details') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-2.jpg') }}" alt="..."></a>
+            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.product') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-2.jpg') }}" alt="..."></a>
                 <div class="product-overlay">
                 <ul class="mb-0 list-inline">
                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
@@ -131,14 +144,14 @@
                 </ul>
                 </div>
             </div>
-            <h6> <a class="reset-anchor" href="{{ route('frontend.details') }}">Air Jordan 12 gym red</a></h6>
+            <h6> <a class="reset-anchor" href="{{ route('frontend.product') }}">Air Jordan 12 gym red</a></h6>
             <p class="small text-muted">$300</p>
             </div>
         </div>
         <!-- PRODUCT-->
         <div class="col-lg-3 col-sm-6">
             <div class="product text-center skel-loader">
-            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.details') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-3.jpg') }}" alt="..."></a>
+            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.product') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-3.jpg') }}" alt="..."></a>
                 <div class="product-overlay">
                 <ul class="mb-0 list-inline">
                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
@@ -147,14 +160,14 @@
                 </ul>
                 </div>
             </div>
-            <h6> <a class="reset-anchor" href="{{ route('frontend.details') }}">Cyan cotton t-shirt</a></h6>
+            <h6> <a class="reset-anchor" href="{{ route('frontend.product') }}">Cyan cotton t-shirt</a></h6>
             <p class="small text-muted">$25</p>
             </div>
         </div>
         <!-- PRODUCT-->
         <div class="col-lg-3 col-sm-6">
             <div class="product text-center skel-loader">
-            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.details') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-4.jpg') }}" alt="..."></a>
+            <div class="d-block mb-3 position-relative"><a class="d-block" href="{{ route('frontend.product') }}"><img class="img-fluid w-100" src="{{ asset('frontend/img/product-4.jpg') }}" alt="..."></a>
                 <div class="product-overlay">
                 <ul class="mb-0 list-inline">
                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
