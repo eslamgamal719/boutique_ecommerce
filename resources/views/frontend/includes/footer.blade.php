@@ -41,6 +41,7 @@
           </div>
         </div>
       </footer>
+      
       <!-- JavaScript files-->
       <script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script>
       <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -80,5 +81,10 @@
       <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </div>
+    <livewire:scripts />
+
+    <!-- livewire alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <x-livewire-alert::scripts />
   </body>
 </html>

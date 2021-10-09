@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::as('frontend.')->group(function () {
     Route::get('/', [FrontendController::class, 'index'])->name('index');
+    Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+    Route::get('/product/{slug?}', [ProductController::class, 'product'])->name('product');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-    Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
-    Route::get('/details', [ProductController::class, 'details'])->name('details');
 });
 
 

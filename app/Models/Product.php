@@ -31,6 +31,28 @@ class Product extends Model
         return $this->featured ? "Yes" : "No";
     }
 
+    public function scopeFeatured($query)
+    {
+        return $query->whereFeatured(true);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->whereStatus(true);
+    }
+
+    public function scopeHasQuantity($query)
+    {
+        return $query->where('quantity', '>', 0);
+    }
+
+    public function scopeActiveCategory($query)
+    {
+        return $query->whereHas('category', function($q) {
+            $q->whereStatus(1);
+        });
+    }
+
 
 
     public function category()
@@ -46,6 +68,11 @@ class Product extends Model
     public function media()
     {
         return $this->morphMany(Media::class, 'mediable');
+    }
+
+    public function firstMedia()
+    {
+        return $this->morphOne(Media::class, 'mediable')->orderBy('file_sort', 'asc');
     }
 
     public function reviews()
