@@ -49,7 +49,7 @@
 
         </div>
 
-        <livewire:frontend.product-modal-shared />
+        
     </section>
     
 </div>
