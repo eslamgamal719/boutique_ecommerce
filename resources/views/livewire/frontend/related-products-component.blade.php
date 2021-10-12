@@ -38,6 +38,5 @@
         @empty
         @endforelse
 
-        
         </div>
 </div>
