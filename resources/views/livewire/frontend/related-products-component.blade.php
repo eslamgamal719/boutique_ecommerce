@@ -31,7 +31,7 @@
                 </ul>
                 </div>
             </div>
-            <h6> <a class="reset-anchor" href="{{ route('frontend.product') }}">{{ $related_product->name }}</a></h6>
+            <h6> <a class="reset-anchor" href="{{ route('frontend.product', $related_product->slug) }}">{{ $related_product->name }}</a></h6>
             <p class="small text-muted">${{ $related_product->price }}</p>
             </div>
         </div>

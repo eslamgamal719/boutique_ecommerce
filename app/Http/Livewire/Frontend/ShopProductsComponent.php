@@ -17,6 +17,10 @@ class ShopProductsComponent extends Component
     public $sortingBy = 'default';
     public $slug;
 
+    public function mount($slug)
+    {
+        $this->slug = $slug;
+    }
 
     public function addToCart($id) 
     {
@@ -73,7 +77,7 @@ class ShopProductsComponent extends Component
 
         if($this->slug != '') {
 
-            $category = Category::whereSlug($this->slug)->whereStatus(true)->first();
+            $category = Category::whereSlug($this->slug)->whereStatus(true)->firstOrFail();
 
             if(is_null($category->parent_id)) {
 

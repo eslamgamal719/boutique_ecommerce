@@ -11,7 +11,7 @@
                 <div class="owl-thumbs d-flex flex-row flex-sm-column" data-slider-id="1">
                 
                 @foreach($product->media as $media)
-                    <div class="owl-thumb-item flex-fill mb-2 mr-2 {{ $loop->last ? '' : 'mr-sm-0' }}">
+                    <div class="owl-thumb-item flex-fill mb-2 {{ $loop->last ? '' : 'mr-2 mr-sm-0' }}">
                         <img class="w-100" src="{{ asset('assets/products/' . $media->file_name) }}" alt="{{ $product->name }}">
                     </div>
                 @endforeach
@@ -66,6 +66,7 @@
             </ul>
         </div>
         </div>
+        
         <!-- DETAILS TABS-->
         <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
             <li class="nav-item">

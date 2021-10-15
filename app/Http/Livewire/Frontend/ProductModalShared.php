@@ -61,9 +61,14 @@ class ProductModalShared extends Component
 
     public function showProductModalAction($slug)
     {
-        $this->productModalStatus = true;
         $this->productModal = [];
-        $this->productModal = Product::withAvg('reviews', 'rating')->whereSlug($slug)->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
+        $this->productModal = Product::withAvg('reviews', 'rating')
+        ->whereSlug($slug)
+        ->Active()
+        ->HasQuantity()
+        ->ActiveCategory()
+        ->firstOrFail();
+        $this->productModalStatus = true;
         //dd($this->productModal);
     }
 

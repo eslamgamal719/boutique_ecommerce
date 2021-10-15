@@ -20,6 +20,7 @@
         </div>
         </div>
     </section>
+    
         <livewire:frontend.shop-products-component :slug="$slug" />
 
     </div>
