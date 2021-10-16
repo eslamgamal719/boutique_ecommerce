@@ -32,7 +32,8 @@ class ShopProductsComponent extends Component
         if($duplicates->isNotEmpty()) {
             $this->alert('warning', "This product is already exists in your cart");
         }else {
-            Cart::instance('default')->add($product->id, $product->name, 1, $product->price);
+            Cart::instance('default')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);;
+            $this->emit('updateCart');
             $this->alert('success', "Product added to your cart successfully");
         }
     }
@@ -47,7 +48,8 @@ class ShopProductsComponent extends Component
         if($duplicates->isNotEmpty()) {
             $this->alert('warning', "This product is already exists in your wishlist");
         }else {
-            Cart::instance('wishlist')->add($product->id, $product->name, 1, $product->price);
+            Cart::instance('wishlist')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);;
+            $this->emit('updateCart');
             $this->alert('success', "Product added to your wishlist successfully");
         }
     }
