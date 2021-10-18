@@ -34,6 +34,11 @@ class CartItemComponent extends Component
         }
     }
 
+    public function removeFromCart($rowId)
+    {
+        $this->emit('removeFromCart', $rowId);
+    }
+
 
     public function render()
     {

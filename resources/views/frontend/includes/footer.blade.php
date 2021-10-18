@@ -43,7 +43,8 @@
       </footer>
       
       <!-- JavaScript files-->
-      <script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script>
+      <script src="{{ asset('js/app.js') }}"></script>
+      <!-- <script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script> -->
       <script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
       <script src="{{ asset('frontend/vendor/lightbox2/js/lightbox.min.js') }}"></script>
       <script src="{{ asset('frontend/vendor/nouislider/nouislider.min.js') }}"></script>
@@ -86,5 +87,7 @@
     <!-- livewire alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <x-livewire-alert::scripts />
+
+   
   </body>
 </html>

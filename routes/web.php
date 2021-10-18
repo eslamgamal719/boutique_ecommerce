@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::as('frontend.')->group(function () {
     Route::get('/product/{slug?}', [ProductController::class, 'product'])->name('product');
     Route::get('/cart', [CartController::class, 'cart'])->name('cart');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');
 });
 
 

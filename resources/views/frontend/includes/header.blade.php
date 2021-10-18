@@ -64,7 +64,9 @@
               </ul>
               <ul class="navbar-nav ml-auto">
 
+
                 <livewire:frontend.cart-component />
+                
 
                 @guest
                   <li class="nav-item">

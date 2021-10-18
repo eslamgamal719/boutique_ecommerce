@@ -1,4 +1,4 @@
-    <tr>     <!-- no need to div because these are rows at table -->
+    <tr x-data="{ show: true }" x-show="show">     <!-- no need to div because these are rows at table -->
         <th class="pl-0 border-0" scope="row">
             <div class="media align-items-center">
             <a class="reset-anchor d-block animsition-link" href="{{ route('frontend.product', $item->model->slug) }}">
@@ -32,7 +32,9 @@
             <p class="mb-0 small">${{ $item->qty * $item->price }}</p>
         </td>
         <td class="align-middle border-0">
-            <a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a>
+            <a wire:click.prevent="removeFromCart('{{ $item->rowId }}')" x-on:click="show = false" class="reset-anchor" href="#">
+                <i class="fas fa-trash-alt small text-muted"></i>
+            </a>
         </td>
     </tr>
 
