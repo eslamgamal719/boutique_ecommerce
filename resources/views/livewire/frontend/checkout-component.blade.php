@@ -113,6 +113,15 @@
                     <strong class="small font-weight-bold">Subtotal</strong>
                     <span class="text-muted small">${{ $cart_subTotal }}</span>
                 </li>
+
+                @if(session()->has('coupon'))
+                <li class="border-bottom my-2"></li>
+                <li class="d-flex align-items-center justify-content-between">
+                    <strong class="small font-weight-bold">Discount <small>({{ session()->get('coupon')['code'] }})</small></strong>
+                    <span class="text-muted small">- ${{ $cart_discount }}</span>
+                </li>
+                @endif
+
                 <li class="border-bottom my-2"></li>
                 <li class="d-flex align-items-center justify-content-between">
                     <strong class="small font-weight-bold">Tax</strong>
@@ -123,15 +132,28 @@
                     <strong class="text-uppercase small font-weight-bold">Total</strong>
                     <span>${{ $cart_total }}</span>
                 </li>
+
                 <li class="border-bottom my-2"></li>
-                <li class="d-flex align-items-center justify-content-between">
+                <li>
                     <form wire:submit.prevent="applyDiscount()">
+                        
+                        @if(!session()->has('coupon'))
                         <input type="text" wire:model="coupon_code" class="form-control" placeholder="Enter your coupon">
+                        @endif
+                        
+                        @if (session()->has('coupon'))
+                        <button type="button" wire:click.prevent="removeCoupon()" class="btn btn-danger btn-sm btn-block">
+                            <i class="fas fa-gift mr-2"></i> Remove Coupon
+                        </button>
+                        @else
                         <button type="submit" class="btn btn-dark btn-sm btn-block">
                             <i class="fas fa-gift mr-2"></i> Apply Coupon
                         </button>
+                        @endif
+
                     </form>
                 </li>
+
             </ul>
         </div>
         </div>
