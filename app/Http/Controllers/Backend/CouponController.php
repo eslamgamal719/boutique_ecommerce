@@ -11,7 +11,6 @@ class CouponController extends Controller
 {
     public function __construct()
     {
-      
         $this->middleware('permission:show_coupons', ['only' => ['index']]);
         $this->middleware('permission:create_coupon', ['only' => ['create', 'store']]);
         $this->middleware('permission:update_coupon', ['only' => ['edit', 'update']]);

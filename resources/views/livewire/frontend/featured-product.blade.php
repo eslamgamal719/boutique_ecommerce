@@ -7,7 +7,7 @@
         <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
         </header>
         <div class="row">
-
+            
             @forelse ($featuredProducts as $featuredProduct)
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="product text-center">
@@ -49,7 +49,9 @@
 
         </div>
 
-        <livewire:frontend.product-modal-shared />
+        
+        
+
     </section>
     
 </div>

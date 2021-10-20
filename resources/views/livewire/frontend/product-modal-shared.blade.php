@@ -1,10 +1,9 @@
-
 <div wire:ignore.self class="modal fade" id="productView" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
-
-                @if($productModalStatus)
+                
+               @if($productModalStatus)
                 <div class="row align-items-stretch">
                     <div class="col-lg-6 p-lg-0">
                         @foreach($productModal->media as $media)
@@ -28,11 +27,13 @@
 
                   <div class="col-lg-6">
                     <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <div class="p-5 my-md-4">
+                    <div wire:ignore class="p-5 my-md-4">
                       <ul class="list-inline mb-2">
                           @if ($productModal->reviews_avg_rating != '')
                             @for ($i = 1; $i <= 5; $i++)
-                                <li class="list-inline-item m-0"><i class="{{ round($productModal->reviews_avg_rating) >= $i ? 'fas' : 'far' }} fa-star fa-sm text-warning"></i></li>
+                                <li class="list-inline-item m-0">
+                                  <i class="{{ round($productModal->reviews_avg_rating) >= $i ? 'fas' : 'far' }} fa-star fa-sm text-warning"></i>
+                                </li>
                             @endfor
                           @else
                             <li class="list-inline-item m-0"><i class="far fa-star fa-sm text-warning"></i></li>

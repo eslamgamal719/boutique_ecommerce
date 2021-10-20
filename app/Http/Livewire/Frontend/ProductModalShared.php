@@ -41,6 +41,7 @@ class ProductModalShared extends Component
         }else {
             Cart::instance('default')->add($this->productModal->id, $this->productModal->name, $this->quantity, $this->productModal->price)->associate(Product::class);
             $this->quantity = 1;
+            $this->emit('updateCart');
             $this->alert('success', "Product added to your cart successfully");
         }
     }
@@ -55,15 +56,21 @@ class ProductModalShared extends Component
             $this->alert('warning', 'This product is already exists in wishlist');
         }else {
             Cart::instance('wishlist')->add($this->productModal->id, $this->productModal->name, 1, $this->productModal->price)->associate(Product::class);
+            $this->emit('updateCart');
             $this->alert('success', "Product added to your wishlist successfully");
         }
     }
 
     public function showProductModalAction($slug)
     {
-        $this->productModalStatus = true;
         $this->productModal = [];
-        $this->productModal = Product::withAvg('reviews', 'rating')->whereSlug($slug)->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
+        $this->productModal = Product::withAvg('reviews', 'rating')
+        ->whereSlug($slug)
+        ->Active()
+        ->HasQuantity()
+        ->ActiveCategory()
+        ->firstOrFail();
+        $this->productModalStatus = true;
         //dd($this->productModal);
     }
 
