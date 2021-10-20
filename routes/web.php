@@ -22,16 +22,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::as('frontend.')->group(function () {
-    Route::get('/', [FrontendController::class, 'index'])->name('index');
-    Route::get('/shop/{slug?}', [ShopController::class, 'shop'])->name('shop');
+    Route::get('/',                 [FrontendController::class, 'index'])->name('index');
+    Route::get('/shop/{slug?}',     [ShopController::class, 'shop'])->name('shop');
     Route::get('/shop/tags/{slug}', [ShopController::class, 'shop_tag'])->name('shop.tag');
-    Route::get('/product/{slug?}', [ProductController::class, 'product'])->name('product');
-    Route::get('/cart', [CartController::class, 'cart'])->name('cart');
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-    Route::get('/wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');
+    Route::get('/product/{slug?}',  [ProductController::class, 'product'])->name('product');
+    Route::get('/cart',             [CartController::class, 'cart'])->name('cart');
+    Route::get('/wishlist',         [WishlistController::class, 'wishlist'])->name('wishlist');
+
+    
+});
+
+Route::as('frontend.')->middleware('auth:web')->group(function () {
+    Route::get('/checkout',         [CartController::class, 'checkout'])->name('checkout');
 });
 
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
