@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Frontend;
 
 use App\Models\Coupon;
+use App\Models\Payment;
 use App\Models\ShippingCompany;
 use App\Models\UserAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -16,10 +17,13 @@ class CheckoutComponent extends Component
     public $coupon_code;
     public $cart_discount;
     public $addresses;
-    public $customer_address_id;
+    public $customer_address_id = 0;
     public $shipping_companies;
-    public $shipping_company_id;
-    public $cart_shipping;
+    public $shipping_company_id = 0;
+    public $cart_shipping;    //?????
+    public $payment_methods;
+    public $payment_method_id = 0;
+    public $payment_method_code;  
 
     protected $listeners = [
         'updateCart' => 'mount'
@@ -28,6 +32,10 @@ class CheckoutComponent extends Component
 
     public function mount()
     {
+        $this->customer_address_id = session()->has('saved_customer_address_id') ? session()->get('saved_customer_address_id') : '';
+        $this->shipping_company_id = session()->has('saved_shipping_company_id') ? session()->get('saved_shipping_company_id') : '';
+        $this->payment_method_id = session()->has('saved_payment_method_id') ? session()->get('saved_payment_method_id') : '';
+
         $this->addresses = auth()->user()->addresses;
 
         $this->cart_subTotal = getNumbers()->get('subtotal');
@@ -40,6 +48,7 @@ class CheckoutComponent extends Component
         }else {
             $this->updateShippingCompanies();
         }
+        $this->payment_methods = Payment::whereStatus(true)->get();
     }
 
     public function applyDiscount()
@@ -93,10 +102,12 @@ class CheckoutComponent extends Component
     {
         session()->forget('saved_customer_address_id');
         session()->forget('saved_shipping_company_id');
+        session()->forget('shipping');
         session()->put('saved_customer_address_id', $this->customer_address_id);
 
         $this->customer_address_id = session()->has('saved_customer_address_id') ? session()->get('saved_customer_address_id') : '';
         $this->shipping_company_id = session()->has('saved_shipping_company_id') ? session()->get('saved_shipping_company_id') : '';
+        $this->payment_method_id = session()->has('saved_payment_method_id') ? session()->get('saved_payment_method_id') : '';
         $this->emit('updateCart');
     }
 
@@ -104,10 +115,12 @@ class CheckoutComponent extends Component
     {
         session()->forget('saved_customer_address_id');
         session()->forget('saved_shipping_company_id');
+        session()->forget('shipping');
         session()->put('saved_customer_address_id', $this->customer_address_id);
 
         $this->customer_address_id = session()->has('saved_customer_address_id') ? session()->get('saved_customer_address_id') : '';
         $this->shipping_company_id = session()->has('saved_shipping_company_id') ? session()->get('saved_shipping_company_id') : '';
+        $this->payment_method_id = session()->has('saved_payment_method_id') ? session()->get('saved_payment_method_id') : '';
         $this->emit('updateCart');
     }
 
@@ -140,6 +153,12 @@ class CheckoutComponent extends Component
         $this->customer_address_id = session()->has('saved_customer_address_id') ? session()->get('saved_customer_address_id') : '';
         $this->shipping_company_id = session()->has('saved_shipping_company_id') ? session()->get('saved_shipping_company_id') : '';
         $this->emit('updateCart');
+    }
+
+    public function updatePaymentMethod()
+    {
+        $paymentMethod = Payment::whereId($this->payment_method_id)->first();
+        $this->payment_method_code = $paymentMethod->code;
     }
 
     public function render()
