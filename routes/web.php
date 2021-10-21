@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\Frontend\WishlistController;
@@ -33,7 +34,8 @@ Route::as('frontend.')->group(function () {
 });
 
 Route::as('frontend.')->middleware('auth:web')->group(function () {
-    Route::get('/checkout',         [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout',            [CartController::class, 'checkout'])->name('checkout');
+    Route::post('/checkout/payment',   [PaymentController::class, 'checkout_now'])->name('checkout.payment');
 });
 
 
