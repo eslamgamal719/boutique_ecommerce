@@ -33,7 +33,7 @@ function getNumbers()
     return collect([
         'subtotal'                => $subTotal,
         'discount'                => (float)$discount,
-        'subotal_after_discount'  => (float)$subTotal_after_discount,
+        'subtotal_after_discount' => (float)$subTotal_after_discount,
         'tax'                     => $tax,
         'tax_text'                => $taxText,
         'product_taxes'           => (float)$productTaxes,

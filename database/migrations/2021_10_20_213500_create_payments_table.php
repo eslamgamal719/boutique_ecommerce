@@ -13,7 +13,7 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('code')->unique();
@@ -24,8 +24,8 @@ class CreatePaymentsTable extends Migration
             $table->string('secret')->nullable();
             $table->string('sandbox_merchant_email')->nullable();
             $table->string('sandbox_username')->nullable();
-            $table->string('sandbox_password')->nullable();
-            $table->string('sandbox_secret')->nullable();
+            $table->string('sandbox_client_id')->nullable();
+            $table->string('sandbox_client_secret')->nullable();
             $table->boolean('sandbox')->default(false);
             $table->boolean('status')->default(false);
             $table->timestamps();

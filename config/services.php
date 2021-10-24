@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'paypal' => [
+        'username' => 'sb-hvsbl8265211_api1.business.example.com',
+        'password' => 'NP43CCNWCKJDFBSD',
+        'signature' => 'A8BVybHB8sqYf29M0qCSiat-Te1rA5v-6hhqhUj-nvAE5lR0NyuGOWHS',
+        'sandbox' => true,
+    ]
+
 ];

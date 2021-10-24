@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Payment;
+use App\Models\PaymentMethod;
 
-class PaymentSeeder extends Seeder
+class PaymentMethodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
-        Payment::create([
+        PaymentMethod::create([
             'name'                      => 'PayPal',
             'code'                      => 'PPEX',
             'driver_name'               => 'PayPal_Express',
@@ -24,8 +24,8 @@ class PaymentSeeder extends Seeder
             'secret'                    => null,
             'sandbox_merchant_email'    => null,
             'sandbox_username'          => null,
-            'sandbox_password'          => null,
-            'sandbox_secret'            => null,
+            'sandbox_client_id'         => null,
+            'sandbox_client_secret'     => null,
             'sandbox'                   => true,
             'status'                    => true,
         ]);

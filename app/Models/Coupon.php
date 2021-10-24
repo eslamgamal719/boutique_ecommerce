@@ -32,7 +32,7 @@ class Coupon extends Model
         return $this->status == 1 ? "Active" : 'Inactive';
     }
 
-    public function discount($total)
+    public function discount($total)  //take subtotal
     {
         if(!$this->checkDate() || !$this->checkUsedTimes()) {
             return 0;

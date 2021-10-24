@@ -195,13 +195,13 @@
       @can('show_payments')
       <!-- shipping companies -->
       <li class="nav-item">
-        <a class="nav-link {{ active_menu('payments')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="{{ active_menu('payments')[1] }}" aria-controls="collapseTwo">
+        <a class="nav-link {{ active_menu('payment_methods')[0] }}" href="#" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="{{ active_menu('payment_methods')[1] }}" aria-controls="collapseTwo">
           <i class="fas fa-dollar-sign"></i>
           <span>Payment methods</span>
         </a>
-        <div id="collapseTwelve" class="collapse {{ active_menu('payments')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwelve" class="collapse {{ active_menu('payment_methods')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('admin.payments.index') }}">Payment methods</a>
+            <a class="collapse-item" href="{{ route('admin.payment_methods.index') }}">Payment methods</a>
           </div>
         </div>
       </li>

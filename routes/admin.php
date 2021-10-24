@@ -14,7 +14,7 @@ use App\Http\Controllers\Backend\ShippingCompanyController;
 use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\SupervisorController;
 use App\Http\Controllers\Backend\TagController;
-use App\Http\Controllers\Backend\PaymentController;
+use App\Http\Controllers\Backend\PaymentMethodController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::resource('shipping_companies', ShippingCompanyController::class);
 
-        Route::resource('payments', PaymentController::class);
+        Route::resource('payment_methods', PaymentMethodController::class);
 
     });
 });

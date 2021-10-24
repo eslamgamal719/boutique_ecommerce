@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\PaymentRequest;
-use App\Models\Payment;
+use App\Http\Requests\Backend\PaymentMethodRequest;
+use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 
-class PaymentController extends Controller
+class PaymentMethodController extends Controller
 {
 
     public function __construct()
@@ -21,7 +21,7 @@ class PaymentController extends Controller
 
     public function index()
     {
-        $payment_methods = Payment::query()
+        $payment_methods = PaymentMethod::query()
 
             ->when(request()->keyword != '', function ($q){
                 $q->search(request()->keyword);
@@ -31,50 +31,50 @@ class PaymentController extends Controller
             })
             ->orderBy(request()->sort_by ?? 'id', request()->order_by ?? 'desc')->paginate(request()->limit_by ?? 10);
 
-        return view('backend.payments.index', compact('payment_methods'));
+        return view('backend.payment_methods.index', compact('payment_methods'));
     }
 
     public function create()
     {
-        return view('backend.payments.create');
+        return view('backend.payment_methods.create');
     }
 
-    public function store(PaymentRequest $request)
+    public function store(PaymentMethodRequest $request)
     {
-        Payment::create($request->validated());
+        PaymentMethod::create($request->validated());
 
-        return redirect()->route('admin.payments.index')->with([
+        return redirect()->route('admin.payment_methods.index')->with([
             'message'    => 'Created successfully',
             'alert-type' => 'success'
         ]);
 
     }
 
-    public function show(Payment $payment_method)
+    public function show(PaymentMethod $payment_method)
     {
-        return view('backend.payments.show', compact('payment_method'));
+        return view('backend.payment_methods.show', compact('payment_method'));
     }
 
-    public function edit(Payment $payment)
+    public function edit(PaymentMethod $payment_method)
     {
-        return view('backend.payments.edit', compact('payment'));
+        return view('backend.payment_methods.edit', compact('payment_method'));
     }
 
-    public function update(PaymentRequest $request, Payment $payment)
+    public function update(PaymentMethodRequest $request, PaymentMethod $payment_method)
     {
-        $payment->update($request->validated());
+        $payment_method->update($request->validated());
 
-        return redirect()->route('admin.payments.index')->with([
+        return redirect()->route('admin.payment_methods.index')->with([
             'message'    => 'Updated successfully',
             'alert-type' => 'success'
         ]);
     }
 
-    public function destroy(Payment $payment)
+    public function destroy(PaymentMethod $payment_method)
     {
-        $payment->delete();
+        $payment_method->delete();
 
-        return redirect()->route('admin.payments.index')->with([
+        return redirect()->route('admin.payment_methods.index')->with([
             'message'    => 'Deleted successfully',
             'alert-type' => 'success'
         ]);
