@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PaymentRequest extends FormRequest
+class PaymentMethodRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class PaymentRequest extends FormRequest
     {
         return [
             'name'           => 'required|max:255',
-            'code'           => 'required|max:255|unique:payments,code,' . $this->id,
+            'code'           => 'required|max:255|unique:payment_methods,code,' . $this->id,
             'driver_name'    => 'nullable',
             'merchant_email' => 'nullable|email',
             'username'       => 'nullable',
@@ -33,8 +33,8 @@ class PaymentRequest extends FormRequest
             'secret'         => 'nullable',
             'sandbox_merchant_email' => 'nullable',
             'sandbox_username'       => 'nullable',
-            'sandbox_password'       => 'nullable',
-            'sandbox_secret'         => 'nullable',
+            'sandbox_client_id'      => 'nullable',
+            'sandbox_client_secret'  => 'nullable',
             'sandbox'                => 'nullable',
             'status'                 => 'required',
         ];

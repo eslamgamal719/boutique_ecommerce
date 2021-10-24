@@ -5,7 +5,7 @@
         <div class="card-header py-3 d-flex">
             <h6 class="m-0 font-weight-bold text-primary">Create payment method</h6>
             <div class="ml-auto">
-                <a href="{{ route('admin.payments.index') }}" class="btn btn-primary">
+                <a href="{{ route('admin.payment_methods.index') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-home"></i>
                     </span>
@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
 
-            <form action="{{ route('admin.payments.store') }}" method="post">
+            <form action="{{ route('admin.payment_methods.store') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-3">

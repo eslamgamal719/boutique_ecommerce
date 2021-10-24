@@ -30,12 +30,16 @@ Route::as('frontend.')->group(function () {
     Route::get('/cart',             [CartController::class, 'cart'])->name('cart');
     Route::get('/wishlist',         [WishlistController::class, 'wishlist'])->name('wishlist');
 
-    
 });
 
 Route::as('frontend.')->middleware('auth:web')->group(function () {
     Route::get('/checkout',            [CartController::class, 'checkout'])->name('checkout');
     Route::post('/checkout/payment',   [PaymentController::class, 'checkout_now'])->name('checkout.payment');
+    
+    
+    Route::get('/checkout/{order_id}/cancelled',   [PaymentController::class, 'cancelled'])->name('checkout.cancel');
+    Route::get('/checkout/{order_id}/completed',   [PaymentController::class, 'completed'])->name('checkout.complete');
+    Route::get('/checkout/webhook/{order_id?}/{env?}',   [PaymentController::class, 'webhook'])->name('checkout.webhook.ipn');
 });
 
 

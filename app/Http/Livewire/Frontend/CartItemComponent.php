@@ -18,17 +18,19 @@ class CartItemComponent extends Component
 
     public function increaseQuantity($rowId) 
     {
-        if($this->item_quantity > 0) {
-            $this->item_quantity = $this->item_quantity + 1;
+        if($this->item_quantity < Cart::instance('default')->get($rowId)->model->quantity) {
+            $this->item_quantity++;
             Cart::instance('default')->update($rowId, $this->item_quantity);
             $this->emit("updateCart");
+        }else {
+            $this->alert('warning', "This is maximum quantity you can add!");
         }
     }
 
     public function decreaseQuantity($rowId) 
     {
         if($this->item_quantity > 1) {
-            $this->item_quantity = $this->item_quantity - 1;
+            $this->item_quantity--;
             Cart::instance('default')->update($rowId, $this->item_quantity);
             $this->emit("updateCart");
         }

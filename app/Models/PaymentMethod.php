@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 
-class Payment extends Model
+class PaymentMethod extends Model
 {
     use HasFactory, SearchableTrait;
 
@@ -15,9 +15,9 @@ class Payment extends Model
 
     protected $searchable = [
         'columns' => [
-            'payments.name' => 10,
-            'payments.code' => 10,
-            'payments.merchant_email' => 10,
+            'payment_methods.name' => 10,
+            'payment_methods.code' => 10,
+            'payment_methods.merchant_email' => 10,
         ]
     ];
 

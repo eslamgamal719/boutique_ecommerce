@@ -12,4 +12,23 @@ class PaymentController extends Controller
     {
         return 'check out now';
     }
+
+    public function cancelled($order_id)
+    {
+
+    }
+
+    public function completed($order_id)
+    {
+
+    }
+
+    public function webhook($order, $env)
+    {
+
+    }
+
+
+
+
 }

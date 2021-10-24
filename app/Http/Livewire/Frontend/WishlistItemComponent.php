@@ -10,7 +10,6 @@ class WishlistItemComponent extends Component
     public $rowId;
 
 
-
     public function moveToCart($rowId)
     {
         $this->emit('moveToCart', $rowId);
