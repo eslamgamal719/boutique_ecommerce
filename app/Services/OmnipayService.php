@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
 use Omnipay\Omnipay;
 
@@ -12,10 +12,10 @@ class OmnipayService
     {
         if(is_null($payment_method) || $payment_method == 'PayPal_Express') {
             $this->gateway = Omnipay::create('PayPal_Express');
-            $this->gateway->setUsername = config('services.paypal.username');
-            $this->gateway->setPassword = config('services.paypal.password');
-            $this->gateway->setSignature = config('services.paypal.signture');
-            $this->gateway->setTestMode = config('services.paypal.sandbox');
+            $this->gateway->setUsername(config('services.paypal.username'));
+            $this->gateway->setPassword(config('services.paypal.password'));
+            $this->gateway->setSignature(config('services.paypal.signature'));
+            $this->gateway->setTestMode(config('services.paypal.sandbox'));
         }
         return $this->gateway;
     }
