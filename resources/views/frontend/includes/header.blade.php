@@ -49,7 +49,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('frontend.shop') }}">Shop</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="{{ route('frontend.product') }}">Product detail</a>
                 </li>
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
@@ -60,7 +60,7 @@
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.cart') }}">Shopping cart</a>
                       <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.checkout') }}">Checkout</a>
                     </div>
-                </li>
+                </li> -->
               </ul>
               <ul class="navbar-nav ml-auto">
 
@@ -89,7 +89,7 @@
                     </a>
 
                     <div class="dropdown-menu mt-3" aria-labelledby="authDropdown">
-                        <a href="javascript:void(0);" class="dorpdown-item ml-2 mt-2">My Profile</a><br>
+                        <a href="{{ route('frontend.customer.dashboard') }}" class="dorpdown-item ml-2 mt-2">Dashboard</a><br>
                         <a href="javascript:void(0);" class="dorpdown-item ml-2 mt-2"
                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         >Logout</a>

@@ -20,7 +20,7 @@ class CheckoutComponent extends Component
     public $customer_address_id = 0;
     public $shipping_companies;
     public $shipping_company_id = 0;
-    public $cart_shipping;    //?????
+    public $cart_shipping;   
     public $payment_methods;
     public $payment_method_id = 0;
     public $payment_method_code;  

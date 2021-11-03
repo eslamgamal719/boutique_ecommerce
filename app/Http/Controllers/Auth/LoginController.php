@@ -41,23 +41,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function logout(Request $request)
+   /* public function logout(Request $request)
     {
         $cart = collect($request->session()->get('cart'));
 
-        /* call original logout method */
+     
         $response = $this->originalLogout($request);
 
-        /* repopulate session with cart */
+   
         if(!config('cart.destroy_on_logout')) {
             $cart->each(function($row, $identifier) use ($request) {
                 $request->session()->put('cart.' . $identifier, $row);
             });
         }
 
-        /* return original response */
+      
         return $response;
-    }
+    }*/
 
 
     public function username()

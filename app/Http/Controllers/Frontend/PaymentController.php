@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
+    public function checkout() 
+    {
+        return view('frontend.checkout');
+    }
     
     public function checkout_now(Request $request)
     {

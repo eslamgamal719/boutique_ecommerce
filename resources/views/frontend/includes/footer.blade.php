@@ -41,6 +41,10 @@
           </div>
         </div>
       </footer>
+
+
+
+      <livewire:scripts />
       
       <!-- JavaScript files-->
       <script src="{{ asset('js/app.js') }}"></script>
@@ -80,15 +84,16 @@
 
       @stack('scripts')
       <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </div>
-    <livewire:scripts />
 
-    <!-- livewire alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <x-livewire-alert::scripts />
 
-    @include('sweetalert::alert')
-   
+      <!-- livewire alert -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <x-livewire-alert::scripts />
+
+      @include('sweetalert::alert')
+      
   </body>
 </html>

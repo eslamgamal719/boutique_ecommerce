@@ -50,6 +50,11 @@ class Order extends Model
     const REFUNDED = 8;
 
 
+    public function getCurrencyAttribute($value)
+    {
+        return $value == 'USD' ? '$' : $value;
+    }
+    
     public function user()
     {
         return $this->belongsTo(User::class);

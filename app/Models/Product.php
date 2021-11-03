@@ -21,6 +21,9 @@ class Product extends Model
             ];
     }
 
+
+
+
     public function status()
     {
         return $this->status ? "Active" : "Inactive";

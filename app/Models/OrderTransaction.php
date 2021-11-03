@@ -24,7 +24,7 @@ class OrderTransaction extends Model
 
     public function status()
     {
-        switch($this->order_status) {
+        switch($this->transaction) {
             case 0: $result = 'New order'; break;
             case 1: $result = 'Paid'; break;
             case 2: $result = 'Under process'; break;
