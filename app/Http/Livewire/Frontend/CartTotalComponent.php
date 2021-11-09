@@ -10,16 +10,20 @@ class CartTotalComponent extends Component
     public $cart_subTotal;
     public $cart_total;
     public $cart_tax;
-
+    public $cart_discount;
+    public $cart_shipping;
+    
     protected $listeners = [
         'updateCart' => 'mount'
     ];
 
     public function mount()
     {
-        $this->cart_subTotal = Cart::instance('default')->subTotal();
-        $this->cart_total = Cart::instance('default')->total();
-        $this->cart_tax = Cart::instance('default')->tax();
+        $this->cart_subTotal = getNumbers()->get('subtotal');
+        $this->cart_total = getNumbers()->get('total');
+        $this->cart_tax = getNumbers()->get('product_taxes');
+        $this->cart_discount = getNumbers()->get('discount');
+        $this->cart_shipping = getNumbers()->get('shipping');
     }
 
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CustomerAddressController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\ShippingCompanyController;
@@ -63,6 +64,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('shipping_companies', ShippingCompanyController::class);
 
         Route::resource('payment_methods', PaymentMethodController::class);
+
+        Route::resource('orders', OrderController::class);
 
     });
 });

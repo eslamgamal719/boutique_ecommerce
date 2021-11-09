@@ -21,6 +21,9 @@ class Product extends Model
             ];
     }
 
+
+
+
     public function status()
     {
         return $this->status ? "Active" : "Inactive";
@@ -78,6 +81,11 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class, 'product_id');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_product')->withPivot('quantity');
     }
 
 

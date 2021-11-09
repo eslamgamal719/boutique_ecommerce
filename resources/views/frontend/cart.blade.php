@@ -65,8 +65,12 @@
                 <i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue shopping</a>
             </div>
             <div class="col-md-6 text-md-right">
-              <a class="btn btn-outline-dark btn-sm" href="{{ route('frontend.checkout') }}">Procceed to checkout
-                <i class="fas fa-long-arrow-alt-right ml-2"></i></a>
+
+              @if (Cart::instance('default')->count() != 0)
+                <a class="btn btn-outline-dark btn-sm" href="{{ route('frontend.checkout') }}">Procceed to checkout
+                  <i class="fas fa-long-arrow-alt-right ml-2"></i></a>
+              @endif
+              
             </div>
           </div>
         </div>

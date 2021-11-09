@@ -207,5 +207,20 @@
       </li>
       @endcan
 
+      @can('show_orders')
+      <!-- shipping companies -->
+      <li class="nav-item">
+        <a class="nav-link {{ active_menu('orders')[0] }}" href="#" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="{{ active_menu('orders')[1] }}" aria-controls="collapseTwo">
+          <i class="fas fa-shopping-basket"></i>
+          <span>Orders</span>
+        </a>
+        <div id="collapseThirteen" class="collapse {{ active_menu('orders')[2] }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{ route('admin.orders.index') }}">Orders</a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
     </ul>
     <!-- End of Sidebar -->
