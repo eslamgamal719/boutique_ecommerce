@@ -62,7 +62,6 @@ class PaymentController extends Controller
     public function completed($order_id)
     {
         $order = Order::find($order_id);
-
         $omniPay = new OmnipayService('PayPal_Express');
         $response = $omniPay->complete([
             'amount' => $order->total,

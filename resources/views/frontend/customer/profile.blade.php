@@ -43,26 +43,31 @@
                   <input class="form-control form-control-lg" id="first_name" name="first_name" type="text" value="{{ old('first_name', auth()->user()->first_name) }}" placeholder="Enter your first name">
                   @error('first_name')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+
               <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase" for="last_name">Last name</label>
                   <input class="form-control form-control-lg" id="last_name" name="last_name" type="text" value="{{ old('last_name', auth()->user()->last_name) }}" placeholder="Enter your last name">
                   @error('last_name')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+
               <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase" for="email">Email address</label>
                   <input class="form-control form-control-lg" id="email" name="email" type="email" value="{{ old('email', auth()->user()->email) }}" placeholder="e.g. Jason@example.com">
                   @error('email')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+
               <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase" for="mobile">Mobile number</label>
                   <input class="form-control form-control-lg" id="mobile" name="mobile" type="tel"  value="{{ old('mobile', auth()->user()->mobile) }}" placeholder="e.g. 966512345678">
                   @error('mobile')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+
               <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase d-flex" for="password">Password <small class="ml-auto text-danger">(Optional)</small></label>
                   <input class="form-control form-control-lg" id="password" name="password" type="password">
                   @error('password')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+              
               <div class="col-lg-6 form-group">
                   <label class="text-small text-uppercase d-flex" for="password_confirmation">Re-Password <small class="ml-auto text-danger">(Optional)</small></label>
                   <input class="form-control form-control-lg" id="password_confirmation" name="password_confirmation" type="password">

@@ -25,7 +25,7 @@
                 <label class="text-small text-uppercase">&nbsp;</label>
                 <div class="form-check">
                     <input class="form-check-input" id="default_address" wire:model="default_address" type="checkbox">
-                    <label class="form-check-label" for="default_address">Default address?</label>
+                    <label class="form-check-label" for="default_address">Default address ?</label>
                 </div>
             </div>
 

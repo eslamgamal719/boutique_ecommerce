@@ -42,7 +42,7 @@
             </table>
         </div>
 
-        <div x-show="showOrder" class="border rounded shadow p-4" x-on:click.away="showOrder = false">
+        <div x-show="showOrder" x-on:click.away="showOrder = false" class="border rounded shadow p-4">
             <div class="table-responsive mb-4">
                 <table class="table">
                     <thead class="bg-light">
@@ -95,7 +95,7 @@
                         <tr>
                             <th class="border-0" scope="col"><strong class="text-small text-uppercase">Transaction</strong></th>
                             <th class="border-0" scope="col"><strong class="text-small text-uppercase">Date</strong></th>
-                            <!-- <th class="border-0" scope="col"><strong class="text-small text-uppercase">Days</strong></th> -->
+                             <!-- <th class="border-0" scope="col"><strong class="text-small text-uppercase">Days</strong></th>  -->
                             <th></th>
                         </tr>
                     </thead>
@@ -104,15 +104,15 @@
                             <tr>
                                 <td>{{ $transaction->status() }}</td>
                                 <td>{{ $transaction->created_at->format('Y-m-d') }}</td>
-                                <!-- <td>{{ $transaction->created_at->addDays(5)->diffInDays() }}</td> -->
+                                 <!-- <td>{{ $transaction->created_at->addDays(5)->diffInDays() }}</td>  -->
                                 <td>
                                     @if (
                                         $loop->last &&
                                         $transaction->transaction == \App\Models\OrderTransaction::FINISHED &&
-                                        \Carbon\Carbon::now()->addDays(5)->diffInDays($transaction->created_at->format('Y-m-d')) != 0
+                                        $transaction->created_at->addDays(5)->diffInDays() != 0
                                     )
-                                        <button type="button" class="btn btn-link text-right">
-                                            You can return order in ({{ 5 - $transaction->created_at->diffInDays() }}) days
+                                        <button type="button" wire:click.prevent="requestReturnOrder('{{ $order->id }}')" class="btn btn-link text-right">
+                                            You can return order in ({{ $transaction->created_at->addDays(5)->diffInDays() }}) days
                                         </button>
                                     @endif
                                 </td>

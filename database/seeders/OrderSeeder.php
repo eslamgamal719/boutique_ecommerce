@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
     public function run()
     {
         $eslamUser = User::find(1);
-        $products = Product::active()->hasQuantity()->inRandomOrder()->take(3)->get();
+        $products = Product::active()->hasQuantity()->activeCategory()->inRandomOrder()->take(3)->get();
         $subTotalValue = $products->sum('price');
         $discountValue = $subTotalValue * 0.5;
         $shippingValue = 15.00;

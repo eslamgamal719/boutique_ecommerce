@@ -125,9 +125,9 @@ class AddressesComponent extends Component
         $address = UserAddress::find($id);
 
         if($address->default_address) {
-            auth()->user()->addresses()->first()->update([
+            auth()->user()->addresses()->where('id', '!=', $address->id)->first()->update([
                 'default_address' => true,
-            ]);
+            ]); 
         }
 
         $address->delete();
@@ -164,7 +164,6 @@ class AddressesComponent extends Component
         $this->showForm = false;
         $this->alert('success', 'Address created successfully');
     }
-
     
     public function resetForm()
     {
@@ -180,8 +179,6 @@ class AddressesComponent extends Component
 
         return view('livewire.frontend.customer.addresses-component', [
             'addresses' => auth()->user()->addresses,
-            'states' => $this->states,
-            'cities' => $this->cities,
         ]);
     }
 }

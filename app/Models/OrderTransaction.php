@@ -32,8 +32,8 @@ class OrderTransaction extends Model
             case 4: $result = 'Rejected'; break;
             case 5: $result = 'Canceled'; break;
             case 6: $result = 'Refund requested'; break;
-            case 7: $result = 'Refunded'; break;
-            case 8: $result = 'Returned order'; break;
+            case 7: $result = 'Returned order'; break;
+            case 8: $result = 'Refunded'; break;
         }
         return $result;
     }

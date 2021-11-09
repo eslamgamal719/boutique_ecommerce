@@ -39,6 +39,7 @@ class Order extends Model
         ]
     ];
 
+
     const NEW_ORDER = 0;
     const PAYMENT_COMPLETED = 1;
     const UNDER_PROCESS = 2;
@@ -96,8 +97,8 @@ class Order extends Model
             case 4: $result = 'Rejected'; break;
             case 5: $result = 'Canceled'; break;
             case 6: $result = 'Refund requested'; break;
-            case 7: $result = 'Refunded'; break;
-            case 8: $result = 'Returned order'; break;
+            case 7: $result = 'Returned order'; break;
+            case 8: $result = 'Refunded'; break;
         }
         return $result;
     }
@@ -112,7 +113,7 @@ class Order extends Model
             case 4: $result = '<label class="badge badge-danger">Rejected</label>'; break;
             case 5: $result = '<label class="badge badge-dark text-white">Canceled</label>'; break;
             case 6: $result = '<label class="badge bg-dark text-white">Refund requested</label>'; break;
-            case 7: $result = '<label class="badge bg-slate">Returned order</label>'; break;
+            case 7: $result = '<label class="badge bg-secondary text-white">Returned order</label>'; break;
             case 8: $result = '<label class="badge bg-dark text-white">Refunded order</label>'; break;
         }
         return $result;

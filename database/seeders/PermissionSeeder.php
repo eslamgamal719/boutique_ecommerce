@@ -97,6 +97,12 @@ class PermissionSeeder extends Seeder
             'update_payment',    
             'delete_payment',
 
+            'show_orders',   
+            'create_order',    
+            'display_order',  
+            'update_order',    
+            'delete_order',
+
         ];
 
         foreach($permissions as $permission) {
