@@ -3,12 +3,15 @@
 namespace App\Http\Livewire\Frontend;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class WishlistItemComponent extends Component
 {
-    public $rowId;
+    use LivewireAlert;
 
+    public $rowId;
+    
 
     public function moveToCart($rowId)
     {

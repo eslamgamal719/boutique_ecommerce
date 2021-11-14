@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\Frontend;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class CartTotalComponent extends Component
 {
+    use LivewireAlert;
+
     public $cart_subTotal;
     public $cart_total;
     public $cart_tax;

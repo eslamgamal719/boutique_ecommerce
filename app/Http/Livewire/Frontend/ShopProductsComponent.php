@@ -7,9 +7,11 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ShopProductsComponent extends Component
 {
+    use LivewireAlert;
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';  //var in WithPagination trait

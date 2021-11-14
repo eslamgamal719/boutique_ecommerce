@@ -5,9 +5,11 @@ namespace App\Http\Livewire\Frontend;
 use App\Models\Product;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class FeaturedProduct extends Component
 {
+    use LivewireAlert;
 
     public function addToCart($id) 
     {

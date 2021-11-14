@@ -7,10 +7,13 @@ use App\Models\PaymentMethod;
 use App\Models\ShippingCompany;
 use App\Models\UserAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class CheckoutComponent extends Component
 {
+    use LivewireAlert;
+
     public $cart_subTotal;
     public $cart_total;
     public $cart_tax;
