@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderTransaction;
 use App\Models\Product;
+use App\Models\User;
+use App\Notifications\Frontend\Customer\OrderCreatedNotification;
 use App\Services\OmnipayService;
 use App\Services\OrderService;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -96,6 +99,10 @@ class PaymentController extends Controller
                 'saved_payment_method_id',
                 'shipping',
             ]);
+
+            Admin::whereStatus(true)->each(function($admin, $key) use($order) {
+                $admin->notify(new OrderCreatedNotification($order));
+            });
 
             toast('Your recent payment is successful with reference code: ' . $response->getTransactionReference(), 'success');
             return redirect()->route('frontend.index');

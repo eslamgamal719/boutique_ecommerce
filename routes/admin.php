@@ -16,11 +16,15 @@ use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\SupervisorController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\PaymentMethodController;
+use App\Models\Admin;
+use App\Models\Order;
+use App\Models\User;
+use App\Notifications\Frontend\Customer\OrderCreatedNotification;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test', function() {
-    return view('backend.login');
+    return Admin::whereStatus(true)->get();
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {

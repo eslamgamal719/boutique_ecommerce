@@ -40,7 +40,7 @@ return [
                 'useTLS' => true,
                 'encrypted' => true,
                 'host' => '127.0.0.1',
-                'port' => 6001,
+                'port' => 6002,
                 'scheme' => 'https',
                 'curl_options' => [
                     CURLOPT_SSL_VERIFYHOST => 0,
