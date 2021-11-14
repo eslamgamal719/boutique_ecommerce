@@ -27,7 +27,7 @@
                         <td>{{ $order->ref_id }}</td>
                         <td>{{ $order->user->full_name }}</td>
                         <td>{{ $order->payment_method->name }}</td>
-                        <td>{{ $order->currency . $order->total }}</td>
+                        <td>{{ $order->currency() . $order->total }}</td>
                         <td>{!! $order->statusWithLabel() !!}</td>
                         <td>{{ $order->created_at->format('Y-m-d h:i a') }}</td>
                         <td>

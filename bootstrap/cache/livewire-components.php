@@ -1,4 +1,5 @@
 <?php return array (
+  'backend.navbar.notification-component' => 'App\\Http\\Livewire\\Backend\\Navbar\\NotificationComponent',
   'frontend.cart-component' => 'App\\Http\\Livewire\\Frontend\\CartComponent',
   'frontend.cart-item-component' => 'App\\Http\\Livewire\\Frontend\\CartItemComponent',
   'frontend.cart-total-component' => 'App\\Http\\Livewire\\Frontend\\CartTotalComponent',

@@ -28,6 +28,12 @@ class Admin extends Authenticatable
     ];
 
 
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.Models.Admin.'.$this->id;
+    }
+
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);

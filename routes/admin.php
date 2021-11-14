@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test', function() {
-    return Admin::whereStatus(true)->get();
+    return auth('admin')->user();
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {

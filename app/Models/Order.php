@@ -51,9 +51,9 @@ class Order extends Model
     const REFUNDED = 8;
 
 
-    public function getCurrencyAttribute($value)
+    public function currency()
     {
-        return $value == 'USD' ? '$' : $value;
+        return $this->currency == 'USD' ? '$' : $this->currency;
     }
     
     public function user()
