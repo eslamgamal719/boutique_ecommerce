@@ -10,7 +10,8 @@
         Alerts Center
         </h6>
         @forelse ($unreadNotifications as $notification)
-        <a class="dropdown-item d-flex align-items-center" href="{{ $notification->data['order_url'] }}">
+        <a class="dropdown-item d-flex align-items-center" style="cursor: pointer;"
+         wire:click="markAsRead('{{ $notification->id }}')">
         <div class="mr-3">
             <div class="icon-circle bg-primary">
             <i class="fas fa-file-alt text-white"></i>
@@ -22,9 +23,7 @@
         </div>
         </a>
         @empty
-            <div>No notifications found!</div>
+            <div class="dropdown-item text-center">No notifications found!</div>
         @endforelse
-
-        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
     </div>
 </div>

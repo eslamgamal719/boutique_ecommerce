@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Frontend\Customer;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
@@ -18,7 +19,7 @@ class OrderCreatedNotification extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct(Order $order)
     {
         $this->order = $order;
     }

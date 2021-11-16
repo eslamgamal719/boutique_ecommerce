@@ -40,7 +40,7 @@ Route::as('frontend.')->middleware('auth:web')->group(function () {
     Route::get('addresses', [CustomerController::class, 'addresses'])->name('customer.addresses');
     Route::get('dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
     Route::get('orders', [CustomerController::class, 'orders'])->name('customer.orders');
-
+    
 
     Route::middleware('check_cart')->group(function() {
         Route::get('/checkout',            [PaymentController::class, 'checkout'])->name('checkout');

@@ -1,1 +1,17 @@
 /* your styles go here */
+
+.navbar-nav .nav-item .nav-link .badge-counter {
+    position: absolute;
+    transform: scale(0.7);
+    transform-origin: top right;
+    right: 0.4rem;
+    margin-top: -0.55rem;
+    border-radius: 100%;
+    margin-right: -2px;
+}
+
+.without-after::after {
+  display: none !important;
+}
+
+ 

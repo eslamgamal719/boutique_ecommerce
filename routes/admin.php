@@ -24,7 +24,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test', function() {
-    return auth('admin')->user();
+    $order = Order::find(1);
+    $admin = Admin::find(1);
+
+    $admin->notify(new OrderCreatedNotification($order));
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
