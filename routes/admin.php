@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test', function() {
+
     $order = Order::find(1);
     $admin = Admin::find(1);
 

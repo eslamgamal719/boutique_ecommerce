@@ -1,11 +1,11 @@
 <div>
     <a href="#" class="nav-link dropdown-toggle without-after" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="badge badge-danger badge-counter">{{ $unReadNotificationsCount }}</span>                         
+        <span class="badge badge-danger badge-counter">{{ $unreadNotificationsCount }}</span>                         
         <i class="fas fa-user-alt mr-1 text-gray"></i>
     </a>
 
     <div class="dropdown-menu mt-3" aria-labelledby="notificationDropdown">
-    @forelse ($unReadNotifications as $notification)
+    @forelse ($unreadNotifications as $notification)
         <a class="dropdown-item d-flex align-items-center" style="cursor: pointer;"
         wire:click="markAsRead('{{ $notification->id }}')">
         <div class="mr-3">

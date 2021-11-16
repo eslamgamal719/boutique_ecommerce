@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Backend\Navbar;
 
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class NotificationComponent extends Component
@@ -20,17 +19,17 @@ class NotificationComponent extends Component
         ];
     }
 
-    public function mount()
-    {
-        $this->unreadNotificationCount = auth('admin')->user()->unreadNotifications()->count();
-        $this->unreadNotifications = auth('admin')->user()->unreadNotifications;
-    }
-
     public function markAsRead($id)
     {
         $notification = auth('admin')->user()->unreadNotifications()->whereId($id)->first();
         $notification->markAsRead();
         return redirect()->to($notification->data['order_url']);
+    }
+
+    public function mount()
+    {
+        $this->unreadNotificationCount = auth('admin')->user()->unreadNotifications()->count();
+        $this->unreadNotifications = auth('admin')->user()->unreadNotifications;
     }
 
     public function render()

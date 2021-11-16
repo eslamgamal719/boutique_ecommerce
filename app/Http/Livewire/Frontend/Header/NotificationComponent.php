@@ -6,8 +6,8 @@ use Livewire\Component;
 
 class NotificationComponent extends Component
 {
-    public $unReadNotificationsCount = '';
-    public $unReadNotifications;
+    public $unreadNotificationsCount = '';
+    public $unreadNotifications;
 
     public function getListeners(): array
     {
@@ -19,8 +19,8 @@ class NotificationComponent extends Component
 
     public function mount()
     {
-        $this->unReadNotificationsCount = auth()->user()->unreadNotifications()->count();
-        $this->unReadNotifications = auth()->user()->unreadNotifications()->get();
+        $this->unreadNotificationsCount = auth()->user()->unreadNotifications()->count();
+        $this->unreadNotifications = auth()->user()->unreadNotifications()->get();
     }
 
     public function markAsRead($id)
