@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Scripts -->
     <link src="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Favicon-->
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.default.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
+
       @stack('css')
       <livewire:styles />
   </head>
@@ -49,18 +50,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('frontend.shop') }}">Shop</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" href="{{ route('frontend.product') }}">Product detail</a>
-                </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                  <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.index') }}">Homepage</a>
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.shop') }}">Category</a>
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.product') }}">Product detail</a>
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.cart') }}">Shopping cart</a>
-                      <a class="dropdown-item border-0 transition-link" href="{{ route('frontend.checkout') }}">Checkout</a>
-                    </div>
-                </li> -->
               </ul>
               <ul class="navbar-nav ml-auto">
 
@@ -83,9 +72,14 @@
                   </li>
                 @else
                   <li class="nav-item dropdown">
+
+                      <livewire:frontend.header.notification-component />  
+                    
+                  </li>
+
+                  <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="authDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       <i class="fas fa-user-alt mr-1 text-gray"></i>
-                       Welcome, {{ auth()->user()->full_name }}
+                        {{ auth()->user()->full_name }}
                     </a>
 
                     <div class="dropdown-menu mt-3" aria-labelledby="authDropdown">

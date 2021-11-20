@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderTransaction;
+use App\Models\User;
+use App\Notifications\Backend\Orders\OrderNotification;
 use App\Services\OmnipayService;
 use Illuminate\Http\Request;
 
@@ -82,6 +84,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
+        $customer = User::find($order->user_id);
+
         if ($request->order_status == Order::REFUNDED) {
             
             $omniPay = new OmnipayService('PayPal_Express');
@@ -100,6 +104,8 @@ class OrderController extends Controller
                     'transaction_number' => $response->getTransactionReference(),
                     'payment_result' => 'success'
                 ]);
+
+                $customer->notify(new OrderNotification($order));
     
                 return redirect()->back()->with([
                     'message' => 'Order refunded successfully',
@@ -113,6 +119,8 @@ class OrderController extends Controller
             $order->transactions()->create([
                 'transaction' => $request->order_status
             ]);
+
+            $customer->notify(new OrderNotification($order));
 
             return redirect()->back()->with([
                 'message' => 'Updated successfully',

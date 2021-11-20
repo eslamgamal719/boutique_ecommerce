@@ -58,7 +58,7 @@
                         <tbody>
                         <tr>
                             <th>Subtotal</th>
-                            <td>{{ $order->currency . $order->subtotal }}</td>
+                            <td>{{ $order->currency() . $order->subtotal }}</td>
                         </tr>
                         <tr>
                             <th>Discount code</th>
@@ -66,19 +66,19 @@
                         </tr>
                         <tr>
                             <th>Discount</th>
-                            <td>{{ $order->currency . $order->discount }}</td>
+                            <td>{{ $order->currency() . $order->discount }}</td>
                         </tr>
                         <tr>
                             <th>Shipping</th>
-                            <td>{{ $order->currency . $order->shipping }}</td>
+                            <td>{{ $order->currency() . $order->shipping }}</td>
                         </tr>
                         <tr>
                             <th>tax</th>
-                            <td>{{ $order->currency . $order->tax }}</td>
+                            <td>{{ $order->currency() . $order->tax }}</td>
                         </tr>
                         <tr>
                             <th>Amount</th>
-                            <td>{{ $order->currency . $order->total }}</td>
+                            <td>{{ $order->currency() . $order->total }}</td>
                         </tr>
                         </tbody>
                     </table>

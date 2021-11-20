@@ -24,7 +24,7 @@ class OrderService
             'discount_code'         =>  session()->has('coupon') ? session()->get('coupon')['code'] : null,
             'discount'              =>  getNumbers()->get('discount'),
             'shipping'              =>  getNumbers()->get('shipping'),
-            'tax'                   =>  getNumbers()->get('tax'),
+            'tax'                   =>  getNumbers()->get('product_taxes'),
             'total'                 =>  getNumbers()->get('total'),
             'currency'              =>  'USD',
             'order_status'          =>  0,

@@ -24,23 +24,23 @@
           <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
               <a class="category-item" href="{{ route('frontend.shop', $categories[0]->slug) }}">
-                <img class="img-fluid" src="{{ asset('assets/products/cat-img-1.jpg') }}" alt="{{ $categories[0]->name }}">
+                <img class="img-fluid" src="{{ asset('assets/categories/' . $categories[0]->cover) }}" alt="{{ $categories[0]->name }}">
                 <strong class="category-item-title">{{ $categories[0]->name }}</strong>
               </a>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
               <a class="category-item mb-4" href="{{ route('frontend.shop', $categories[1]->slug) }}">
-                <img class="img-fluid" src="{{ asset('assets/products/cat-img-2.jpg') }}" alt="{{ $categories[1]->name }}">
+                <img class="img-fluid" src="{{ asset('assets/categories/' . $categories[1]->cover) }}" alt="{{ $categories[1]->name }}">
                 <strong class="category-item-title">{{ $categories[1]->name }}</strong>
               </a>
               <a class="category-item" href="{{ route('frontend.shop', $categories[2]->slug) }}">
-                  <img class="img-fluid" src="{{ asset('assets/products/cat-img-3.jpg') }}" alt="{{ $categories[2]->name }}">
+                  <img class="img-fluid" src="{{ asset('assets/categories/' . $categories[2]->cover) }}" alt="{{ $categories[2]->name }}">
                   <strong class="category-item-title">{{ $categories[2]->name }}</strong>
                 </a>
             </div>
             <div class="col-md-4">
               <a class="category-item" href="{{ route('frontend.shop', $categories[3]->slug) }}">
-                <img class="img-fluid" src="{{ asset('assets/products/cat-img-4.jpg') }}" alt="{{ $categories[3]->name }}">
+                <img class="img-fluid" src="{{ asset('assets/categories/' . $categories[3]->cover) }}" alt="{{ $categories[3]->name }}">
                 <strong class="category-item-title">{{ $categories[3]->name }}</strong>
               </a>
             </div>
