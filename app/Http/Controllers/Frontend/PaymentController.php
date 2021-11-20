@@ -31,7 +31,7 @@ class PaymentController extends Controller
         $omniPay = new OmnipayService('PayPal_Express');
         $response = $omniPay->purchase([
             'amount' => $order->total,
-            'transactionId' => $order->id,
+            'transactionId' => $order->ref_id,
             'currency' => $order->currency,
             'cancelUrl' => $omniPay->getCancelUrl($order->id),
             'returnUrl' => $omniPay->getReturnUrl($order->id),
@@ -70,7 +70,7 @@ class PaymentController extends Controller
         $omniPay = new OmnipayService('PayPal_Express');
         $response = $omniPay->complete([
             'amount' => $order->total,
-            'transactionId' => $order->id,
+            'transactionId' => $order->ref_id,
             'currency' => $order->currency,
             'cancelUrl' => $omniPay->getCancelUrl($order->id),
             'returnUrl' => $omniPay->getReturnUrl($order->id),

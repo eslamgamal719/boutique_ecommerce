@@ -17,7 +17,9 @@ use App\Http\Controllers\Backend\SupervisorController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\PaymentMethodController;
 use App\Mail\TestMail;
+use App\Models\Admin;
 use App\Models\User;
+use App\Notifications\Frontend\Customer\OrderCreatedNotification;
 use App\Notifications\Frontend\Customer\OrderThanksNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -26,18 +28,10 @@ use Meneses\LaravelMpdf\Facades\LaravelMpdf as PDF;
 
 Route::get('/test', function() {
 
-       return  $order = \App\Models\Order::with('products', 'payment_method', 'user')->find(6);
-        $data = $order->toArray();
-        $data['currency_symbol'] = $order->currency == 'USD' ? '$' : $order->currency;
-    
-		$pdf = PDF::loadView('layouts.invoice', $data);
-		$saved_file = storage_path('app/pdf/files/' . $data['ref_id'] . ".pdf");
-        $pdf->save($saved_file);
-
-        $customer = User::find($order->user_id);
-        $customer->notify(new OrderThanksNotification($order, $saved_file));
-
-        return "email sent";
+       /*  $order = \App\Models\Order::find(8);
+        $admin = Admin::find(1);    
+        $admin->notify(new OrderCreatedNotification($order));
+        return "email sent";*/
 
 });
 
