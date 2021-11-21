@@ -13,9 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(WorldSeeder::class);
+        $this->call(WorldStatusSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(UserAddressSeeder::class);  //for first user only (Eslam Gamal)
+
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(TagSeeder::class);
@@ -23,9 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTagsSeeder::class);
         $this->call(CouponSeeder::class);
         $this->call(ReviewSeeder::class);
-        $this->call(WorldSeeder::class);
-        $this->call(WorldStatusSeeder::class);
-        $this->call(UserAddressSeeder::class);
         $this->call(ShippingCompanySeeder::class);
         $this->call(PaymentMethodSeeder::class);
         $this->call(OrderSeeder::class);

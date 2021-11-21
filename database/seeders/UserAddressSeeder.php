@@ -59,24 +59,6 @@ class UserAddressSeeder extends Seeder
             'po_box'                => $faker->randomNumber(4),
         ]);
 
-        User::where('id', '>' , 3)->each(function($user) use($faker, $egy, $state, $city) {
-            $user->addresses()->create([
-                'address_title'         => 'Home',
-                'default_address'       => true,
-                'first_name'            => $faker->firstName,
-                'last_name'             => $faker->lastName,
-                'email'                 => $user->email,
-                'mobile'                => $user->mobile,
-                'address'               => $faker->address,
-                'address2'              => $faker->secondaryAddress,
-                'country_id'            => $egy->id,
-                'state_id'              => $state,
-                'city_id'               => $city,
-                'zip_code'              => $faker->randomNumber(5),
-                'po_box'                => $faker->randomNumber(4),
-            ]);
-        });
-
         Schema::enableForeignKeyConstraints();
     }
 }

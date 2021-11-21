@@ -34,6 +34,14 @@ class UserFactory extends Factory
             'remember_token'    => Str::random(10),
         ];
     }
+    
+    //  to apply something on every user created by this factory
+    // public function configure()
+    // {
+    //     return $this->afterCreating(function (User $user) {
+    //         $user->assignRole(1);
+    //     });
+    // }
 
     /**
      * Indicate that the model's email address should be unverified.

@@ -32,7 +32,7 @@ class CouponSeeder extends Seeder
             'type'              => 'percentage',
             'value'             => 50,
             'description'       => 'Discount 50% on your sales on website',
-            'use_times'         => 5,
+            'use_times'         => 10,
             'start_date'        => Carbon::now(),
             'expire_date'       => Carbon::now()->addWeek(),
             'greater_than'      => null,  //use this discount for any products you buy
