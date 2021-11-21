@@ -102,7 +102,6 @@ class PermissionSeeder extends Seeder
             'display_order',  
             'update_order',    
             'delete_order',
-
         ];
 
         foreach($permissions as $permission) {

@@ -15,7 +15,6 @@ class ProductsImagesSeeder extends Seeder
      */
     public function run()
     {
-
         $images[] = ['file_name' => '01.jpg', 'file_type' => 'image/jpg', 'file_size' => rand(100, 900), 'file_status' => true, 'file_sort' => 0];
         $images[] = ['file_name' => '02.jpg', 'file_type' => 'image/jpg', 'file_size' => rand(100, 900), 'file_status' => true, 'file_sort' => 0];
         $images[] = ['file_name' => '03.jpg', 'file_type' => 'image/jpg', 'file_size' => rand(100, 900), 'file_status' => true, 'file_sort' => 0];

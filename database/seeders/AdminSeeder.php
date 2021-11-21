@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
 use App\Models\User;
-use Illuminate\Database\Seeder;
+use App\Models\Admin;
 use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -20,17 +20,21 @@ class AdminSeeder extends Seeder
     {
         $customer = User::create([
             'first_name' => 'Eslam',
-            'last_name' => 'Gamal',
-            'username' => 'eslam',
+            'last_name'  => 'Gamal',
+            'username'   => 'eslam',
             'email' => 'eslam@gmail.com',
             'email_verified_at' => now(),
             'mobile' => '966500000002',
             'password' => bcrypt('123123123'),
             'status' => 1,
-            'remember_token' =>
-            Str::random(10)]);
+            'remember_token' => Str::random(10)]);
+        
+            
+        /**
+         *  Create 1000 fake users with their addresses
+         */
+        User::factory()->count(1000)->hasAddresses(1)->create();  
 
-        User::factory()->count(100)->create();   //create 100 user using factory
 
         $admin = Admin::create([
             'first_name'        => "Admin",
