@@ -10,7 +10,7 @@ class ChartComponent extends Component
 {
 
     public $monthLabels = []; 
-    public $monthValus  = []; 
+    public $monthValues  = []; 
 
 
     public function mount()
