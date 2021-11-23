@@ -31,10 +31,10 @@ return [
     ],
 
     'paypal' => [
-        'username' => 'seller1_api1.bitfumes.com',
-        'password' => 'ENT68LDYC7UYF4EN',
-        'signature'=> 'AOQsnEoOVXGPNmkoVQICx3RSWC0DAMgrTWcuuVLcbJ0gQl3xgSUBIzHq',
-        'sandbox'  => true,
+        'username' => env('PAYPAL_USERNAME'),
+        'password' => env('PAYPAL_PASSWORD'),
+        'signature'=> env('PAYPAL_SIGNATURE'),
+        'sandbox'  => env('PAYPAL_SANDBOX'),
     ]
 
 ];
